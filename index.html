@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#e6edff"><title>1024.exe｜程序员生存挑战</title>
+  <link rel="icon" href="data:,">
+  <style>
+@font-face{font-family:Arcade1024;src:url("data:font/ttf;base64,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AAAAZAAAAGQAAABkAAAAZAAA/gwAAABkAAAAAAAAAGQAAADIAAAAZAAA/gwAAABkAAABLAAAAGQAAP5wAAAAZAAAAAAAAABkAAAAAAAAAGQAAAJYAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAACgAZAAACDQK8AAMABwALAA8AEwAXABsAHwAjACcAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEA4QAAAGQAAP84AAAAZAAAAAAAAABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAP84AAAAZAAAAAAAAABkAAAAAAAAAGQAAAJYAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+c/5wAZAAA/5z/nABkAAD/nP+cAGQAAP+c/5wAZAAA/5wAAABkAAD/nAAAAGQAAP+cAA4AGQAAAg0CvAADAAcACwAPABMAFwAbAB8AIwAnACsALwAzADcAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAH0AAABkAAAAAAAAAGQAAAAAAAAAZAAA/nAAAABkAAABLAAAAGQAAP+cAAAAZAAA/zgAAABkAAD/OAAAAGQAAP84AAAAZAAA/zgAAABkAAAAAAAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAAJYAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nP+cAGQAAP+c/5wAZAAA/5z/nABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAAZAAA/5wADwAZAAACDQK8AAMABwALAA8AEwAXABsAHwAjACcAKwAvADMANwA7AAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAGQAAAGQAAAAA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AGQAAP+c/5wAZAAA/5z/nABkAAD/nP+cAGQAAP+c/5wAZAAA/5z/nABkAAD/nAAAABIAGQAAAg0CvAADAAcACwAPABMAFwAbAB8AIwAnACsALwAzADcAOwA/AEMARwAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAH0AAABkAAAAAAAAAGQAAAAAAAAAZAAA/nAAAABkAAABLAAAAGQAAP4MAAAAZAAAASwAAABkAAD+DAAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAAAAAAAAZAAA/gwAAABkAAABLAAAAGQAAP4MAAAAZAAAASwAAABkAAD+DAAAAGQAAAEsAAAAZAAAAlgAZAAA/5wAAABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cABQAGQAAAg0CvAADAAcACwAPABMAFwAbAB8AIwAnACsALwAzADcAOwA/AEMARwBLAE8AAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBABkAAABkAAAAAAAAAGQAAAAAAAAAZAAAAAAAAABkAAD+cAAAAGQAAAEsAAAAZAAA/gwAAABkAAABLAAAAGQAAP4MAAAAZAAAAAAAAABkAAAAAAAAAGQAAAAAAAAAZAAA/nAAAABkAAABLAAAAGQAAP4MAAAAZAAAASwAAABkAAD+DAAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAAJYAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAAZAAA/5wADQAZAAACDQK8AAMABwALAA8AEwAXABsAHwAjACcAKwAvADMAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAfQAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAP4MAAAAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAAAAAAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAAJYAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAP+c/5wAZAAA/5z/nABkAAD/nP+cAGQAAP+c/5wAZAAA/5z/nABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAAEgAZAAACDQK8AAMABwALAA8AEwAXABsAHwAjACcAKwAvADMANwA7AD8AQwBHAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAGQAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAP5wAAAAZAAAASwAAABkAAD+DAAAAGQAAAEsAAAAZAAA/gwAAABkAAABLAAAAGQAAP4MAAAAZAAAASwAAABkAAD+DAAAAGQAAAEsAAAAZAAA/gwAAABkAAAAAAAAAGQAAAAAAAAAZAAAAAAAAABkAAACWABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAEgAZAAACDQK8AAMABwALAA8AEwAXABsAHwAjACcAKwAvADMANwA7AD8AQwBHAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAGQAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAAAAAAAAZAAA/gwAAABkAAD/nAAAAGQAAP+cAAAAZAAA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AGQAAP4MAAAAZAAAAGQAAABkAAAAZAAAAGQAAP4MAAAAZAAAAGQAAABkAAAAZAAAAGQAAP4MAAAAZAAAASwAAABkAAD+DAAAAGQAAAEsAAAAZAAA/gwAAABkAAABLAAAAGQAAAJYAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nAATABkAAAINArwAAwAHAAsADwATABcAGwAfACMAJwArAC8AMwA3ADsAPwBDAEcASwAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAZAAAAZAAAASwAAABkAAD+DAAAAGQAAAAAAAAAZAAAAMgAAABkAAD+DAAAAGQAAAAAAAAAZAAAAMgAAABkAAD+DAAAAGQAAABkAAAAZAAAAGQAAABkAAD+DAAAAGQAAADIAAAAZAAAAAAAAABkAAD+DAAAAGQAAADIAAAAZAAAAAAAAABkAAD+DAAAAGQAAAEsAAAAZAAAAlgAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5wAAAAQABkAAAINArwAAwAHAAsADwATABcAGwAfACMAJwArAC8AMwA3ADsAPwAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQB9AAAAZAAAAAAAAABkAAAAAAAAAGQAAP5wAAAAZAAAASwAAABkAAD+DAAAAGQAAAEsAAAAZAAA/gwAAABkAAABLAAAAGQAAP4MAAAAZAAAASwAAABkAAD+DAAAAGQAAAEsAAAAZAAA/nAAAABkAAAAAAAA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AAAAZAAAAGQAAP4MAAAAZAAAAGQAAABkAAAAZAAAAGQAAP4MAAAAZAAAAGQAAABkAAAAZAAAAGQAAP5wAAAAZAAAAGQAAABkAAACWABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAADQAZAAACDQK8AAMABwALAA8AEwAXABsAHwAjACcAKwAvADMAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAGQAAAGQAAAEsAAAAZAAA/gwAAABkAAABLAAAAGQAAP5wAAAAZAAAAGQAAABkAAD/OAAAAGQAAP84AAAAZAAAAGQAAABkAAD+cAAAAGQAAAEsAAAAZAAA/gwAAABkAAABLAAAAGQAAAJYAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAACgAZAAACDQK8AAMABwALAA8AEwAXABsAHwAjACcAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAGQAAAGQAAAEsAAAAZAAA/gwAAABkAAABLAAAAGQAAP5wAAAAZAAAAGQAAABkAAD/OAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAAJYAGQAAP+cAAAAZAAA/5z/nABkAAD/nAAAAGQAAP+c/5wAZAAA/5wAAABkAAD/nP+cAGQAAP+c/5wAZAAA/5z/nABkAAD/nP+cAGQAAP+cAA8AGQAAAg0CvAADAAcACwAPABMAFwAbAB8AIwAnACsALwAzADcAOwAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBABkAAABkAAAAAAAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAP+cAAAAZAAA/zgAAABkAAD/OAAAAGQAAP84AAAAZAAA/zgAAABkAAD/nAAAAGQAAAAAAAAAZAAAAAAAAABkAAAAAAAAAGQAAAAAAAAAZAAAAlgAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nP+cAGQAAP+c/5wAZAAA/5z/nABkAAD/nP+cAGQAAP+c/5wAZAAA/5z/nABkAAD/nAAAAGQAAP+cAAAAZAAA/5wAAABkAAD/nAAAAGQAAP+cAAAAAQAAAAEAAO7icQNfDzz1AAMD6AAAAAAAAAAAAAAAAAAAAAAAAP84AlgDUgAAAAgAAgABAAAAAAABAAADUv9qAGQCWAAAAAACWAABAAAAAAAAAAAAAAAAAAAALwJYAAABXgAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAAAAAAAAAAAAAAAAAAAAkAAAAMgAAAGcAAACGAAAAjwAAALkAAAElAAABXwAAAa8AAAIFAAACVQAAArYAAAMRAAADUQAAA7IAAAQNAAAEJgAABFAAAAR6AAAE4AAABVEAAAWcAAAGAgAABmgAAAa4AAAHHgAAB38AAAfVAAAIGgAACGoAAAiqAAAJEAAACXwAAAnXAAAKLQAACo4AAAr0AAALSgAAC4oAAAvgAAAMKwAADIwAAAzXAAANEQAADWcAAEAAAAvAIwAIwAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAFAEIAAwABBAkAAQAUAAAAAwABBAkAAgAOABQAAwABBAkABAAkACIAAwABBAkABgAkAEYAAwABBAkAAABkAGoAQQByAGMAYQBkAGUAMQAwADIANABSAGUAZwB1AGwAYQByAEEAcgBjAGEAZABlADEAMAAyADQAIABSAGUAZwB1AGwAYQByAEEAcgBjAGEAZABlADEAMAAyADQALQBSAGUAZwB1AGwAYQByAE8AcgBpAGcAaQBuAGEAbAAgAHAAcgBvAGoAZQBjAHQAIABhAHIAdAB3AG8AcgBrAC4AIABDAG8AcAB5AHIAaQBnAGgAdAAgADIAMAAyADYALgAgAEMAQwAwAC0AMQAuADAALgADAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA") format('truetype');font-display:swap;font-weight:100 900}
+:root{color-scheme:light;--ink:#22243b;--blue:#4e65df;--cyan:#35d9df;--orange:#ffb44c;--pink:#ff709a;--purple:#9d76f5;--cream:#fff8ed;--muted:#565775;--surface:#fff8ed;--accent:#4e65df;--pixel:Arcade1024,'Courier New',monospace}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font:15px/1.75 Arial,'Microsoft YaHei',sans-serif;background:#e6edff;background-image:radial-gradient(#4e65df1c 1px,transparent 1px);background-size:12px 12px;transition:background-color .3s}body[data-scene=scanner]{background-color:#d5f5e8;--accent:#168584}body[data-scene=choice]{background-color:#e9ddff;--accent:#7953c7}body[data-scene=chat]{background-color:#fff0bf;--accent:#b7691d}body[data-scene=logs]{background-color:#d1dcf4;--accent:#be414f}body[data-scene=ending]{background-color:#ffe1cd;--accent:#8c55b0}body[data-scene=success]{background-color:#e0d9fc}body[data-scene=invitation]{background-color:#e6e7ff}
+button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default}a{color:inherit}button,.primary,.secondary{min-height:48px;border:2px solid var(--ink);padding:12px 20px;border-radius:0;background:var(--cream);color:var(--ink);font-weight:700}button{transition:transform .12s,box-shadow .12s,background .2s}.primary,.secondary{display:inline-flex;justify-content:space-between;align-items:center;text-decoration:none;gap:16px;box-shadow:4px 4px 0 var(--ink)}.primary{background:var(--orange)}.primary:hover:not(:disabled){background:#ffc675;transform:translateY(-2px);box-shadow:4px 6px 0 var(--ink)}.primary:active:not(:disabled),.secondary:active:not(:disabled){transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}button:disabled{opacity:.7}.secondary{background:#eef1ff}.text-button{background:none;border:0;box-shadow:none;font-weight:400;padding:12px 0;text-decoration:underline;text-underline-offset:5px;font-size:13px}.text-button:hover{color:#475ac7}button:focus-visible,a:focus-visible,input:focus-visible,[role=tabpanel]:focus-visible{outline:3px solid #df386a;outline-offset:5px}[hidden]{display:none!important}.topbar{height:76px;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0 max(24px,calc((100vw - 1220px)/2));background:var(--cream);border-bottom:2px solid var(--ink)}.brand{display:flex;align-items:center;gap:12px;font:18px var(--pixel);text-decoration:none;white-space:nowrap}.brand-icon{font:bold 22px monospace;background:var(--blue);color:white;border:2px solid var(--ink);padding:0 7px;box-shadow:3px 3px 0 var(--ink)}.header-center{font:9px var(--pixel);color:#62658a}.header-status{font:8px var(--pixel);display:flex;align-items:center;gap:8px}.header-status i{width:8px;height:8px;background:#3ba884}.header-status b{margin-left:20px;color:#63678c;font-weight:400}main{max-width:1268px;padding:40px 24px 24px;margin:auto;min-height:calc(100svh - 150px);outline:none}h1{font-size:clamp(28px,3.4vw,44px);line-height:1.35;letter-spacing:-1px;margin:20px 0}h2{font-size:19px;line-height:1.6}p{overflow-wrap:anywhere}.eyebrow{font:10px/1.8 var(--pixel);letter-spacing:1px;margin:0 0 16px;color:#4c5078}.hint,.privacy{color:var(--muted);font-size:12px;line-height:1.8}.error{color:#a0244c;font-size:13px}.error:empty{margin:10px 0}.error:not(:empty){padding:8px;background:#ffe0e8}footer{max-width:1268px;padding:26px 24px max(24px,env(safe-area-inset-bottom));margin:auto;display:flex;justify-content:space-between;gap:20px;color:#666987;font-size:11px}footer>span:first-child{font:7px/2 var(--pixel)}footer b{margin:0 10px;color:var(--blue)}.pixel-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}.pixel-particles i{position:absolute;left:var(--x);top:46%;width:9px;height:9px;background:var(--orange);animation:confetti 1.2s ease-out both;animation-delay:calc(var(--i)*20ms)}.pixel-particles i:nth-child(3n){background:var(--pink)}.pixel-particles i:nth-child(3n + 1){background:var(--cyan)}@keyframes confetti{0%{opacity:0;transform:translateY(0) scale(0)}15%{opacity:1}100%{opacity:0;transform:translateY(calc(-90px + var(--i)*14px)) rotate(120deg) scale(1)}}@keyframes page-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}main>section{animation:page-in .25s ease-out}
+@media(max-width:760px){.topbar{height:64px;padding:0 18px}.brand{font-size:14px;gap:9px}.brand-icon{font-size:19px}.header-center{display:none}.header-status{font-size:6px}.header-status b{display:none}main{padding:24px 18px 18px}h1{font-size:30px}footer{padding:24px 18px;flex-direction:column;gap:8px}.eyebrow{font-size:8px}.primary{font-size:14px}h2{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Remove redundant slogans; keep the game, not the chrome, in focus. */
+.header-center,.header-status,body>footer{display:none}.topbar{height:62px}.brand{font-size:18px}body{padding-bottom:env(safe-area-inset-bottom)}main{min-height:calc(100svh - 62px)}
+
+</style>
+  <style>
+.home-hero{display:grid;grid-template-columns:1fr 1.12fr;gap:56px;align-items:center;padding:12px 0 32px}.home-copy{min-width:0}.mini-star{color:#c27026;font:24px monospace;margin-right:10px}.home-copy h1{margin:12px 0 22px}.home-logo{display:block;font:clamp(40px,5.4vw,70px)/1.2 var(--pixel);letter-spacing:-2px;color:var(--blue);text-shadow:3px 3px var(--cream),5px 5px var(--ink);margin-bottom:18px}.home-logo span{font-size:.43em;letter-spacing:-1px}.home-copy h1>span:last-child{display:block;font-size:38px;letter-spacing:1px}.theme-line{display:inline-block;font-size:15px;font-weight:700;padding:3px 0 5px;border-bottom:3px solid var(--orange);margin:0}.home-intro{font-size:14px;line-height:1.9;color:#545779;margin:22px 0}.home-copy form{border:2px solid var(--ink);background:var(--cream);padding:18px 20px 12px;box-shadow:5px 5px var(--ink)}.form-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.form-heading label{font:9px/1.6 var(--pixel)}.form-heading label span{font:11px sans-serif;margin-left:7px}.form-heading>span{font:6px var(--pixel);color:#797986}.home-copy input{width:100%;min-width:0;background:#fff;border:2px solid #86869d;border-radius:0;padding:12px;color:var(--ink);font-size:16px;scroll-margin:100px}.home-copy input::placeholder{font-size:13px;color:#6d6e85}.start-button{width:100%;font:13px/1.6 var(--pixel);box-shadow:3px 3px var(--ink);padding:12px 16px}.start-button>span:last-child{font:bold 23px monospace}.play-time{display:flex;justify-content:space-between;gap:5px;font-size:11px;color:#555875;margin:13px 0 0}.play-time span{font-size:10px}.privacy{font-size:10px;margin:16px 0 0}.portal-scene{position:relative;min-width:0;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:#a6d6fa;transform:rotate(1deg);margin:12px 8px 12px 0}.scene-window-bar{padding:12px;background:var(--blue);color:var(--cream);border-bottom:3px solid var(--ink);display:flex;justify-content:space-between;gap:8px;font:7px/1.5 var(--pixel)}.portal-scene>img{width:100%;display:block;aspect-ratio:800/620}.portal-label{position:absolute;bottom:18px;left:20px;font:7px/1.9 var(--pixel);color:white;background:var(--blue);border:2px solid var(--ink);padding:9px 12px;box-shadow:3px 3px var(--ink);transform:rotate(-3deg)}.portal-label b{color:#ffe59b;font-weight:400}.floating-code{position:absolute;background:var(--cream);padding:12px;border:2px solid var(--ink);box-shadow:3px 3px var(--ink);font:9px var(--pixel)}.code-one{top:22%;left:-25px;transform:rotate(-7deg)}.code-two{right:-14px;bottom:22%;transform:rotate(7deg);background:var(--pink);font-size:11px}.section-label{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;margin-top:20px;border-top:2px solid #a3aad0}.section-label>span:first-child{font:9px/1.8 var(--pixel)}.section-label>span:last-child{font-size:12px;color:#5b5f82}.mission-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.mission-mini{display:flex;gap:10px;align-items:center;background:var(--cream);border:2px solid var(--ink);padding:16px 12px;box-shadow:3px 3px var(--ink);font-size:12px;line-height:1.6}.mission-mini b{font:12px var(--pixel);color:var(--blue)}.mission-mini>span:last-child{margin-left:auto;font-size:24px}.mission-mini:nth-child(2){background:#e2d4ff}.mission-mini:nth-child(3){background:#ffe5aa}.mission-mini:nth-child(4){background:#c6e5ff}.mission-mini:nth-child(5){background:#ffccd8}.home-event{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:32px;padding:12px 0;border-top:1px solid #a3aad0;border-bottom:1px solid #a3aad0;font-size:13px}.home-event>span:last-child{font-size:11px;color:#656a8b}.game-rules{font-size:10px;text-align:center}.launching .portal-scene{animation:portal-boot .5s both}.launching .start-button{background:var(--cyan)}@keyframes portal-boot{to{filter:brightness(1.25);transform:scale(1.02)}}
+@media(min-width:1450px){.home-hero{padding:32px 0 45px;gap:75px}}@media(max-width:1000px){.home-hero{gap:32px}.home-copy h1>span:last-child{font-size:30px}.mission-list{gap:8px}.mission-mini{padding:10px 8px;gap:7px}.mission-mini>span:last-child{display:none}.code-one{left:-15px;font-size:7px}}
+@media(max-width:760px){.home-hero{grid-template-columns:minmax(0,1fr);gap:28px;padding:0}.home-copy{max-width:500px;margin:auto;width:100%}.home-copy>.eyebrow{margin-bottom:10px}.home-copy h1{margin:8px 0 14px}.home-logo{font-size:43px;margin-bottom:14px;text-shadow:2px 2px var(--cream),4px 4px var(--ink)}.home-copy h1>span:last-child{font-size:29px}.theme-line{font-size:13px}.home-intro{font-size:12px;margin:14px 0}.home-copy form{padding:14px 14px 10px}.privacy{font-size:9px}.portal-scene{width:100%;max-width:490px;margin:8px auto 22px;transform:none}.portal-scene>img{max-height:340px;object-fit:cover}.code-one{left:-7px;top:23%}.code-two{right:-8px;font-size:8px}.portal-label{font-size:6px}.mission-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mission-mini{padding:12px;font-size:12px;min-height:68px}.mission-mini:last-child{grid-column:1/-1}.mission-mini>span:last-child{display:block}.section-label>span:last-child{font-size:10px}.home-event{flex-wrap:wrap;gap:4px 16px;font-size:12px}.home-event p{margin:4px 0}.game-rules{text-align:left}}
+@media(max-width:360px){.home-logo{font-size:37px}.home-copy h1>span:last-child{font-size:26px}.theme-line{font-size:12px}.form-heading>span{display:none}.play-time{font-size:10px}.play-time span{font-size:9px}.home-intro{font-size:11px}.mission-mini{padding:10px;gap:8px}.section-label>span:last-child{max-width:130px}}
+/* Light Stage 4 polish, using the existing portal. */
+.portal-scene:after{content:'';position:absolute;pointer-events:none;left:34%;right:25%;top:40%;height:30%;background:linear-gradient(transparent,#b5fcff55,transparent);animation:portal-energy 2.4s ease-in-out 3}.home-copy .privacy{font-size:14px}.home-copy .home-intro{font-size:18px}.home-copy .theme-line{font-size:17px}.home-copy .form-heading label{font:16px/1.5 sans-serif;font-weight:bold}.home-copy .form-heading label span{font-size:14px}.home-copy .form-heading>span{display:none}.home-copy input::placeholder{font-size:14px}.play-time,.play-time span{font-size:14px}.mission-mini{font-size:16px}.section-label>span:last-child{font-size:14px}.home-copy .start-button{font-size:16px}.home-copy .play-time{flex-wrap:wrap}.home-page .section-label>span:first-child{font:16px/1.5 sans-serif;font-weight:bold}@keyframes portal-energy{50%{transform:translateY(28px);opacity:.35}}@media(max-width:760px){.home-copy .home-intro{font-size:16px}.home-copy .theme-line{font-size:16px}.mission-mini{font-size:14px}.home-copy .privacy{font-size:14px}.section-label>span:last-child{font-size:14px}.home-copy .home-logo{font-size:40px}}@media(max-width:360px){.home-copy .home-logo{font-size:35px}.home-copy .theme-line{font-size:14px}}
+
+</style><style>
+.quest-top{display:flex;justify-content:space-between;gap:20px;align-items:center}.quest-top>p:first-child{font:11px var(--pixel);flex-shrink:0}.player-chip{font:7px/1.8 var(--pixel);display:flex;align-items:center;gap:12px;margin:0;min-width:0;max-width:30%;color:#5b5f80}.player-chip span{font:12px/1.5 sans-serif;background:var(--cream);border:1px solid var(--ink);padding:4px 10px;overflow-wrap:anywhere;min-width:0}.mission-steps{display:flex;gap:7px}.mission-steps span{font:8px var(--pixel);background:#ffffff70;border:2px solid #9298b4;padding:9px;color:#666b90}.mission-steps .current{background:var(--orange);border-color:var(--ink);box-shadow:2px 2px var(--ink);color:var(--ink)}.mission-steps .done{background:var(--cyan);border-color:var(--ink);color:var(--ink)}progress{width:100%;height:5px;display:block;margin:18px 0 35px;accent-color:var(--accent)}progress::-webkit-progress-bar{background:#22243b1c}progress::-webkit-progress-value{background:var(--accent)}.level-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:50px;align-items:start}.level-narrative{position:sticky;top:24px}.level-narrative h1{font-size:38px;max-width:430px;margin:14px 0}.scene-hint{font-size:13px;color:#565e78;margin:8px 0}.level-art{position:relative;border:2px solid var(--ink);background:linear-gradient(#b6eede,#d7fff1);box-shadow:5px 5px var(--ink);margin:25px 5px 24px 0;overflow:hidden}.level-art>img{display:block;width:100%;height:250px;object-fit:cover}.art-label{position:absolute;bottom:10px;left:14px;font:7px var(--pixel);color:#3d4c63}.dialogue{position:relative;background:var(--cream);border:2px solid var(--ink);padding:16px 18px;margin-top:26px;box-shadow:3px 3px #22243b33}.dialogue:before{content:'';position:absolute;width:14px;height:14px;top:-9px;left:25px;transform:rotate(45deg);background:var(--cream);border-left:2px solid var(--ink);border-top:2px solid var(--ink)}.speaker-tag{font:9px/1.5 var(--pixel);color:var(--accent)}.story{white-space:pre-line;font-size:14px;margin:10px 0 0;line-height:1.9}.interaction-panel{min-width:0;background:var(--cream);border:2px solid var(--ink);box-shadow:6px 6px var(--ink)}.panel-titlebar{background:var(--accent);color:#fff;padding:12px 18px;display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);font:8px var(--pixel)}.panel-body{padding:22px 24px}.panel-body h2{margin:0 0 20px;font-size:18px}.code-block{background:#252940;color:#dbe8ff;position:relative;border:2px solid var(--ink);white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.95 'Courier New',monospace;padding:18px;margin:18px 0;box-shadow:inset 0 4px #59607c}.code-block:not(.logs):before{content:'● ● ●   source.js';display:block;font:10px monospace;color:#a3adcd;border-bottom:1px solid #69738e;padding-bottom:12px;margin-bottom:14px}.options{display:grid;gap:12px;margin:20px 0}.option{width:100%;text-align:left;position:relative;padding:14px 16px;background:#fffefa;border:2px solid #75778c;box-shadow:3px 3px #bcbfcf;font-size:14px;line-height:1.7;font-weight:500;overflow-wrap:anywhere}.option:hover:not(:disabled){border-color:var(--ink);background:#e1e8ff;transform:translateX(3px)}.option.selected{background:#c9f4df;border-color:#25835c;box-shadow:3px 3px #25835c;color:#174d3a;font-weight:700;opacity:1}.option:disabled:not(.selected){opacity:.65}.feedback{position:relative;padding:14px 16px;margin:22px 0 12px;border:2px solid var(--ink);font-size:14px;line-height:1.8;animation:feedback-pop .25s ease-out}.feedback.correct{background:#c9f4df;border-color:#278565;color:#174b3b;box-shadow:3px 3px #278565}.feedback.retry{background:#ffe0d6;border-style:dashed;color:#79321d}.reveal{margin:20px 0;padding:5px 0;border-top:2px dashed #babbbf}.explanation{font-size:13px;color:#4d516c;line-height:1.9}.reveal .granted{font:12px/1.8 var(--pixel);color:#277d5d}.earned-title{background:#ffe4a3;padding:12px;text-align:center;border:2px solid var(--ink)}#next{width:100%;margin:16px 0 2px;font-size:14px}.restart{margin-top:25px}.characters{display:flex;flex-wrap:wrap;gap:7px}.scanner>p{font-size:11px;color:#58636a;margin:16px 0 7px}.character{width:48px;min-width:48px;min-height:50px;padding:5px;background:#ecfff9;border:2px solid #76a8a1;box-shadow:2px 2px #b1d6c9;font:24px/1.5 'Courier New',monospace}.character[aria-pressed=true]{background:var(--cyan);color:var(--ink);border-color:var(--ink);box-shadow:3px 3px var(--ink)}.inspector{display:flex;align-items:center;gap:18px;padding:14px;margin-top:20px;background:#d7f6ee;border:2px solid #4c8a82}.enlarged-character{font:bold 52px/1.2 'Courier New',monospace;min-width:54px;text-align:center}.inspector>span{font:12px/1.8 'Courier New',monospace}.scanner-controls{display:flex;gap:12px;margin:15px 0}.scanner-controls button{flex:1;background:#e0ede6;font-size:12px;padding:8px}#mark-character{width:100%;font-size:13px;background:var(--cyan);box-shadow:3px 3px var(--ink)}.unicode-comparison{font:16px/1.9 'Courier New',monospace;padding:12px;background:#e0f8ef}.scan-beam{position:absolute;left:15%;right:25%;top:40%;height:3px;background:#35d9df;box-shadow:0 0 10px #35d9df;animation:scan 2.2s ease-in-out 2}.level-passed .scan-beam{display:none}@keyframes scan{50%{top:65%}}
+.level-choice .level-art{background:linear-gradient(#ccb6ff,#f5c1e5)}.level-choice .panel-titlebar{background:#7953c7}.confidence{position:relative;background:#e4d7ff;border:2px solid #8e6bc7;padding:12px;font-size:12px}.confidence-bar{height:8px;background:var(--purple);margin-top:10px;width:100%;transition:width .8s ease}.confidence.revealed .confidence-bar{width:0}.confidence.revealed{background:#ffd6e5}.ai-emotion{position:absolute;left:38%;top:40%;width:23%;height:15%;background:var(--blue);text-align:center;font:bold 28px/1.2 monospace;color:var(--cyan);display:flex;align-items:center;justify-content:center}.oops-face{display:none}.level-passed .confident-face{display:none}.level-passed .oops-face{display:inline}.level-passed .ai-emotion{color:#ffd3e6;animation:glitch .4s 2}@keyframes glitch{33%{transform:translateX(-3px)}66%{transform:translateX(3px)}}
+.level-chat .level-art{background:linear-gradient(#ffdc8b,#fff1b9)}.level-chat .panel-titlebar{background:#a96a1d}.chat-options{gap:17px}.chat-options .option{max-width:92%;justify-self:end;background:#e2efff;border:2px solid var(--ink);box-shadow:3px 3px #7fa4c8;padding-left:18px}.chat-options .option:after{content:'';position:absolute;width:10px;height:10px;right:-7px;bottom:12px;background:inherit;transform:rotate(45deg);border-top:2px solid var(--ink);border-right:2px solid var(--ink)}.chat-options .option.selected{background:#c9f4df}.chat-message{position:relative;border:2px solid var(--ink);background:#fff0bc;padding:14px;font-size:14px;box-shadow:3px 3px var(--ink);animation:feedback-pop .3s}.requirements-bonus{font:clamp(14px,2.1vw,25px)/1.9 var(--pixel);color:#b64b32;text-shadow:2px 2px #ffdc72;transform:rotate(-3deg);text-align:center;animation:damage .7s both;margin:24px 0}@keyframes damage{from{opacity:0;transform:translateY(20px) scale(.6) rotate(-3deg)}55%{opacity:1;transform:translateY(-8px) scale(1.1) rotate(-3deg)}to{transform:translateY(0) scale(1) rotate(-3deg)}}
+.level-logs .level-art{background:linear-gradient(#546baa,#8fabe4)}.server-status{position:absolute;top:12px;left:12px;right:12px;font:7px/1.5 var(--pixel);padding:8px;color:#fff;background:#8b3449;border:2px solid var(--ink);transition:background .6s}.server-status i{display:inline-block;width:7px;height:7px;background:#ffb44c;margin-right:9px}.status-ok{display:none}.level-passed .server-status{background:#287d64}.level-passed .status-alert{display:none}.level-passed .status-ok{display:inline}.level-logs.level-passed{--accent:#287d64}.level-logs .level-art{transition:background .6s}.level-logs.level-passed .level-art{background:#9ce7be}.premise{font-size:11px;background:#fce4cb;border-left:4px solid #c47b28;padding:10px 12px}.log-tabs{display:flex;gap:6px;margin-top:18px}.log-tabs button{flex:1;min-width:0;padding:9px;background:#dae2f4;font-size:12px;border-bottom:0}.log-tabs [aria-selected=true]{background:#252940;color:#fff}.logs{min-height:190px;margin-top:0;font-size:12px}.log-line{display:inline;white-space:pre-wrap;overflow-wrap:anywhere}.log-warn{color:#ffd086}.log-error{color:#ffa1b6}.log-info{color:#c4ddff}.recovery{font:bold 15px/1.9 'Courier New',monospace;color:#226b51;background:#d2f5df;padding:8px 12px;animation:feedback-pop .4s}.level-ending .level-art{background:linear-gradient(#d3b4f4,#ffc299)}.friday-clock{position:absolute;top:20%;left:0;right:0;text-align:center;font:clamp(32px,4vw,57px) var(--pixel);color:var(--cream);text-shadow:3px 3px var(--ink);letter-spacing:-2px}.level-ending .dialogue{animation:message-in .45s .2s both}.level-ending .option:nth-child(2){background:#e9ddff}.level-ending .option:nth-child(3){background:#d8f5f5}.level-ending .option:nth-child(4){background:#ffdfdf}.level-ending .option.selected{background:#c9f4df}@keyframes message-in{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}@keyframes feedback-pop{from{transform:scale(.97);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:1000px){.level-grid{gap:28px;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}.panel-body{padding:18px}.level-narrative h1{font-size:31px}.level-art>img{height:220px}.ai-emotion{font-size:23px}.quest-top{gap:12px}.player-chip{max-width:25%}}
+@media(max-width:760px){.quest-top{flex-wrap:wrap;gap:12px}.quest-top>p:first-child{font-size:9px;margin:0}.mission-steps{gap:4px}.mission-steps span{font-size:6px;padding:7px}.player-chip{max-width:100%;flex-basis:100%;font-size:6px;gap:8px}.player-chip span{font-size:11px;padding:2px 8px}.level-grid{grid-template-columns:minmax(0,1fr);gap:24px}.level-narrative{position:static}.level-narrative h1{font-size:29px;margin:10px 0}.level-narrative>.eyebrow{margin:0;font-size:8px}.scene-hint{font-size:12px;margin:8px 0}.level-art{margin:18px 4px 18px 0}.level-art>img{height:170px;object-fit:contain}.level-art .ai-emotion{left:42%;width:15%;top:40%;height:15%;font-size:20px}.art-label{font-size:6px;bottom:8px}.dialogue{margin-top:20px;padding:13px 15px}.story{font-size:13px;line-height:1.8}.speaker-tag{font-size:8px}progress{margin:14px 0 24px}.panel-titlebar{font-size:7px;padding:10px 14px}.panel-body{padding:18px 14px}.panel-body h2{font-size:16px}.code-block{padding:12px;font-size:12px}.option{font-size:13px;padding:13px 12px}.characters{gap:8px}.character{min-width:44px;width:44px;min-height:48px;font-size:23px}.friday-clock{font-size:42px;top:19%}.level-ending .level-art>img{height:200px}.scanner-controls{gap:8px}.feedback{font-size:13px}.logs{font-size:11px;min-height:185px}.requirements-bonus{font-size:17px}.interaction-panel{box-shadow:4px 4px var(--ink)}.server-status{font-size:6px;right:auto;padding:7px}.level-passed .pixel-particles{display:block}}
+
+/* Stage 4: each interaction owns its layout; reuse the existing artwork and palette. */
+.play-page{max-width:900px;margin:auto}.play-page h1{font-size:38px;text-align:center;margin:24px 0 18px}.play-page .quest-top{max-width:800px;margin:auto}.play-page .quest-top>p:first-child{font-size:14px}.play-page .mission-steps span{font:14px/1.2 'Courier New',monospace;padding:7px 10px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.play-page .game-stage{position:relative;max-width:780px;margin:auto;padding:24px;background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px var(--ink)}.play-page .scene-conversation{margin:0 0 16px}.play-page .story{font-size:20px;line-height:1.6;text-align:center;margin:0}.play-page #prompt{font-size:21px;text-align:center;margin:14px 0 22px}.play-page .option{font-size:18px;line-height:1.6;padding:16px 18px;min-height:58px}.play-page .feedback{font-size:18px;line-height:1.6;margin:18px 0}.play-page .hint,.play-page .explanation,.play-page .premise,.play-page .technical-note,.play-page .restart{font-size:14px}.play-page .reveal{margin:18px 0 8px;padding:0;border:0}.play-page #skip-show{font-size:14px;padding:9px 16px;min-height:44px;margin:12px 0}.play-page #next{font-size:17px;min-height:54px}.play-page .pixel-particles{z-index:5}.play-page .restart{display:block;margin:20px auto 0}.play-page .art-label{display:none}.play-page .code-block{font-size:16px;line-height:1.8;margin:16px 0;padding:18px}.play-page .code-block:before{display:none}.play-page .option:disabled:not(.selected){opacity:.75}.play-page .technical-note{margin:12px 0}.technical-note summary{cursor:pointer;min-height:44px;display:flex;align-items:center;text-decoration:underline}.technical-note p{line-height:1.8}.play-page .verified{display:block;text-align:center;font:18px/1.8 var(--pixel);color:#51469b;padding:12px 0}
+/* Find the impostor: aligned rows, touch targets, and a cursor following inspection. */
+.play-page.level-scanner .game-stage{background:#effff5}.play-page .scanner{position:relative;overflow-x:auto;overscroll-behavior-x:contain;padding:4px 3px 12px;scrollbar-color:#5a9e96 #d7eee7}.play-page .scanner>p{font-size:14px;margin:12px 0 8px}.play-page .characters{flex-wrap:nowrap;gap:10px;width:max-content}.play-page .character{position:relative;width:66px;min-width:66px;min-height:70px;font-size:34px;background:#fff;box-shadow:3px 3px #8fc6bb}.play-page .character[aria-pressed=true]{background:var(--cyan);border-color:var(--ink)}.play-page .character[aria-pressed=true]:after{content:'⌕';position:absolute;right:-7px;bottom:-10px;background:var(--cream);color:#225e64;border:2px solid var(--ink);font:20px/24px sans-serif;width:25px;text-align:center;pointer-events:none}.play-page .character.scan-alert{background:#ff9a69;border-color:#bd4931;color:#632b22}.play-page .character.scan-alert:after{content:'!';color:#a12e21}.play-page .inspector{margin:14px 0;justify-content:center;border-width:3px;background:#c9f7ef;transition:background .2s}.play-page .inspector>span{font-size:16px}.play-page .inspector.scan-alert{background:#ffe0b7;border-color:#bc513b}.play-page .enlarged-character{font-size:60px}.play-page .scanner-controls button{font-size:16px}.play-page #mark-character{font-size:18px;min-height:56px}.play-page .unicode-comparison{font-size:17px}.play-page .bug-locked{animation:bug-bounce .85s}.play-page .locked{box-shadow:inset 0 0 0 4px #ffb44c}.play-page .bug-found .feedback{font-weight:700}.play-page .scanner-controls{margin:10px 0}@keyframes bug-bounce{0%,100%{transform:none}35%{transform:translateY(-10px) scale(1.16)}65%{transform:translateY(2px) scale(.96)}}
+/* Expose the AI: robot and oversized confidence meter before the code. */
+.play-page.level-choice .game-stage{display:grid;grid-template-columns:220px minmax(0,1fr);gap:0 22px}.play-page.level-choice .level-art{grid-column:1;grid-row:1/3;width:220px;margin:0;box-shadow:3px 3px var(--ink)}.play-page.level-choice .level-art>img{height:180px;object-fit:contain}.play-page.level-choice .ai-emotion{left:39%;top:40%;width:22%;height:16%;font-size:25px}.play-page.level-choice .confidence{grid-column:2;grid-row:1;border:0;background:none;padding:8px 0}.play-page.level-choice .confidence>span{font:16px/1.6 var(--pixel);display:block}.play-page #confidence-value{font:48px/1.5 var(--pixel);color:#7851b3;display:block}.play-page.level-choice .confidence-bar{height:9px;margin:5px 0 12px;transition:width .08s linear;background:var(--purple)}.play-page.level-choice .scene-conversation{grid-column:2;grid-row:2}.play-page.level-choice .story{font-size:18px;text-align:left}.play-page.level-choice #prompt,.play-page.level-choice #interaction,.play-page.level-choice #feedback,.play-page.level-choice #reveal,.play-page.level-choice #next,.play-page.level-choice #skip-show{grid-column:1/-1}.play-page.level-choice .options{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.play-page .ai-frozen .ai-emotion{filter:grayscale(.7)}.play-page.ai-frozen .confident-face{transform:scaleY(.8)}.play-page.ai-exposed .confident-face{display:none}.play-page.ai-exposed .oops-face{display:inline}.play-page.ai-exposed .ai-emotion{color:#ffd3e6;animation:glitch .4s 2}
+/* A full conversation, not a quiz card. */
+.play-page.level-chat .game-stage{background:#e5f2ff;border:3px solid var(--ink);padding-top:20px}.play-page.level-chat .scene-conversation:before{content:'PM · 在线';font-size:16px;display:block;margin-bottom:16px;color:#465473}.play-page.level-chat .story{font-size:20px;text-align:left;display:table;max-width:94%;background:var(--cream);padding:14px 18px;margin:12px 0;border:2px solid var(--ink);box-shadow:3px 3px #adbacb}.play-page .intro-followup{animation:message-in .35s}.play-page.level-chat #prompt{font-size:18px;color:#4e536b;margin:24px 0 16px}.play-page .chat-options{gap:14px}.play-page .chat-options .option{background:#d9d2ff;max-width:94%;font-size:18px}.play-page.level-chat:has(.player-message) .options{display:none}.play-page .player-message{padding:16px;background:#d9d2ff;border:2px solid var(--ink);font-size:18px;max-width:92%;margin:16px 0 18px auto;animation:message-in .4s}.play-page .chat-message{font-size:18px;max-width:94%;margin:14px 0;background:var(--cream);animation:message-in .35s}.play-page .requirements-bonus{font-size:32px;line-height:1.6;position:relative;z-index:2;margin:28px -8px;color:#a43820}.play-page.level-chat .feedback.correct{font-size:18px}
+/* Incident response: server switches, evidence, and a gated repair action. */
+.play-page.level-logs .game-stage{background:#eaf0ff}.incident-banner{display:flex;align-items:center;justify-content:center;gap:16px;background:#a72e43;color:#fff1e8;padding:18px;border:3px solid var(--ink);margin-bottom:15px;transition:background .6s}.incident-banner strong{font:32px/1.5 var(--pixel);overflow-wrap:anywhere}.incident-lamp{display:block;flex-shrink:0;width:18px;height:18px;background:#ffc199;box-shadow:0 0 0 5px #ef687b}.play-page.level-logs .story{font-weight:700;color:#8d293b}.play-page .log-tabs{gap:12px;margin-top:20px}.play-page .log-tabs button{position:relative;font-size:18px;min-height:75px;background:#c9d7f3;border:2px solid var(--ink);box-shadow:3px 3px var(--ink);padding:10px 8px}.play-page .log-tabs button:before{content:'';display:block;width:36px;height:14px;border:3px double currentColor;margin:0 auto 5px}.play-page .log-tabs [aria-selected=true]{background:#303858;color:#fff}.play-page .logs{font-size:14px;line-height:1.8;margin-top:18px;min-height:185px}.play-page .premise{margin:18px 0 0;background:#dae2f3;border:0;padding:8px 0;color:#525970;line-height:1.7}.play-page .log-error{color:#ffa1b6;font-weight:bold}.play-page .log-warn{color:#ffd086;font-weight:bold}.play-page .repaired .incident-banner,.play-page.repaired .incident-banner{background:#236e53}.play-page.repaired .incident-lamp{background:#a4fcd3;box-shadow:0 0 0 5px #429874}.play-page.repaired .incident-banner strong{font-size:24px}.play-page #repair{width:100%;font-size:20px;padding:16px;margin:16px 0;background:#ffba60}.play-page .recovery{font-size:24px;text-align:center}.play-page .recovered-banner{font:25px/1.6 var(--pixel);text-align:center;color:#236e53;animation:achievement .6s}
+/* Friday fate cards. Existing sunset artwork becomes the clock backdrop. */
+.play-page.level-ending .level-art{width:100%;height:180px;margin:0 0 20px;background:linear-gradient(#bb94e9,#ffc19c);box-shadow:3px 3px var(--ink)}.play-page.level-ending .level-art>img{height:180px;object-fit:contain;opacity:.32}.play-page .friday-clock{font-size:72px;top:36px;text-shadow:4px 4px #63365d;animation:clock-hop 1.2s ease-in-out 2}.play-page.level-ending .story{position:relative;font-size:20px;background:#fff0be;border:2px solid var(--ink);padding:15px;animation:message-in .6s}.play-page.level-ending .story:before{content:'PM：';font-weight:bold}.play-page.level-ending .options{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.play-page.level-ending .option{display:flex;flex-direction:column;justify-content:center;min-height:142px;font-size:19px;padding:20px;border:3px solid var(--ink);box-shadow:5px 5px var(--ink);background:#ffdfa3;transition:opacity .7s,transform .7s,box-shadow .7s}.play-page.level-ending .option:nth-child(2){background:#ded0ff}.play-page.level-ending .option:nth-child(3){background:#bdf0ee}.play-page.level-ending .option:nth-child(4){background:#ffc6d8}.play-page.destiny-chosen .option.selected{transform:scale(1.04);border-color:#9d6120;box-shadow:5px 5px #b77a22,0 0 20px #ffd86e;opacity:1}.play-page.destiny-chosen .option:disabled:not(.selected){opacity:.25}.play-page .title-unlocked{font-size:30px;text-align:center;font-weight:bold;margin:24px 0 12px;color:#764098;animation:achievement .6s}.play-page .earned-title{font-size:28px;background:#ffe4a3;padding:18px;box-shadow:4px 4px #9e6928;animation:achievement .6s}@keyframes clock-hop{50%{transform:translateY(-3px)}}
+@media(max-width:760px){.play-page h1{font-size:29px;margin:20px 0 18px}.play-page .quest-top{gap:8px;flex-wrap:nowrap}.play-page .quest-top>p:first-child{font:14px/1.4 'Courier New',monospace}.play-page .mission-steps{gap:4px}.play-page .mission-steps span{font-size:12px;padding:5px}.play-page .game-stage{padding:16px 12px;box-shadow:3px 3px var(--ink)}.play-page .story{font-size:18px}.play-page #prompt{font-size:20px;margin:15px 0}.play-page .option{font-size:17px;padding:13px;min-height:54px}.play-page .feedback{font-size:17px;padding:12px}.play-page .character{min-width:44px;width:44px;min-height:55px;font-size:27px}.play-page .characters{gap:6px}.play-page .inspector{padding:10px;gap:10px}.play-page .enlarged-character{font-size:48px;min-width:42px}.play-page .inspector>span{font-size:14px}.play-page .unicode-comparison{font-size:15px;padding:10px}.play-page .scanner-controls button{font-size:15px}.play-page #mark-character{font-size:17px}.play-page .code-block{font-size:13px;padding:13px;line-height:1.85}.play-page.level-choice .game-stage{grid-template-columns:110px minmax(0,1fr);gap:0 12px}.play-page.level-choice .level-art{width:110px;grid-row:1;height:112px;align-self:center}.play-page.level-choice .level-art>img{height:112px}.play-page.level-choice .ai-emotion{left:36%;width:28%;top:40%;font-size:18px}.play-page.level-choice .confidence{grid-row:1;padding:0}.play-page.level-choice .confidence>span{font:14px/1.6 'Courier New',monospace;font-weight:bold}.play-page #confidence-value{font-size:32px}.play-page.level-choice .scene-conversation{grid-column:1/-1;grid-row:2;margin:18px 0 0}.play-page.level-choice .story{font-size:18px;text-align:center}.play-page.level-choice .options{grid-template-columns:minmax(0,1fr);gap:12px}.play-page.level-chat .story,.play-page .chat-options .option,.play-page .chat-message,.play-page .player-message{font-size:17px;padding:12px}.play-page .requirements-bonus{font-size:19px;margin:24px -4px}.incident-banner{padding:14px 8px;gap:13px}.incident-banner strong{font-size:23px}.play-page .log-tabs{gap:8px}.play-page .log-tabs button{font-size:16px;padding:9px 6px}.play-page .logs{font-size:13px;padding:12px;min-height:185px}.play-page.repaired .incident-banner strong{font-size:16px}.play-page .recovered-banner{font-size:18px}.play-page .recovery{font-size:19px;padding:10px}.play-page.level-ending .level-art,.play-page.level-ending .level-art>img{height:135px}.play-page .friday-clock{font-size:52px;top:28px}.play-page.level-ending .story{font-size:18px;padding:12px}.play-page.level-ending .options{grid-template-columns:minmax(0,1fr);gap:15px}.play-page.level-ending .option{min-height:84px;font-size:18px;padding:16px}.play-page .title-unlocked{font-size:26px}.play-page .earned-title{font-size:24px}.play-page #next{font-size:16px}}
+.game-heading{display:flex;align-items:center;justify-content:center;gap:18px;margin:20px 0 16px}.play-page .game-heading h1{margin:0}.scene-stamp{width:100px;height:72px;object-fit:contain;pointer-events:none}@media(max-width:760px){.game-heading{gap:8px;margin:18px 0}.scene-stamp{width:58px;height:48px;flex-shrink:0}.play-page .game-heading h1{font-size:28px}}
+.play-page .scanner>.scan-row-label{position:sticky;left:0;width:max-content;max-width:100%;font:22px/1.5 'Courier New',monospace;color:var(--ink);background:#effff5;padding:2px 0;z-index:1}.scan-scroll-hint{display:none;font-size:14px;color:#526567;margin:8px 0}@media(max-width:760px){.scan-scroll-hint{display:block}}
+.play-page .log-tabs button:after{content:'';position:absolute;right:10px;top:10px;width:9px;height:9px;background:#e35b68;border:1px solid #7b2639;transition:background .6s}.play-page.repaired .log-tabs button:after{background:#3bb985;border-color:#195a40}.play-page.repaired .scene-conversation{display:none}
+
+</style>
+  <style>
+.success-page{position:relative;max-width:780px;margin:20px auto 45px;text-align:center;padding:28px 20px}.success-page>.eyebrow{color:#5e4b9e;font-size:11px}.reward-art{position:relative;width:290px;margin:auto}.reward-art>img{display:block;width:100%;position:relative;z-index:1;animation:medal-in .7s both}.reward-rays{position:absolute;inset:10%;background:repeating-conic-gradient(from 0deg,#ffe9a590 0deg 12deg,transparent 12deg 24deg);border-radius:50%;animation:rays 3s ease-out both;transform:scale(1.4);filter:drop-shadow(0 0 20px #ffd464)}.success-page .granted{font:19px/1.7 var(--pixel);color:#5845a3;letter-spacing:2px}.success-page #winner{font-size:15px;margin:8px 0}.success-page #earned-title{font-size:32px;margin:10px 0;color:#6b4097}.success-page h1{font-size:24px;margin:20px 0 5px}.success-page>p:not(.eyebrow):not(.granted){color:#535778}.success-page .primary{width:min(100%,420px);display:flex;margin:28px auto 12px}.success-page .restart{margin:0}.victory-step{animation:achievement .45s both}.step-one{animation-delay:0s}.step-two{animation-delay:.65s}.step-three{animation-delay:1.35s}.step-four{animation-delay:2.1s}.success-page .pixel-particles i{animation-duration:2s;animation-delay:calc(1.3s + var(--i)*30ms)}@keyframes achievement{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}@keyframes medal-in{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}@keyframes rays{from{opacity:0;transform:scale(.8) rotate(-15deg)}to{opacity:1;transform:scale(1.4) rotate(15deg)}}@media(max-width:760px){.success-page{padding:15px 0;margin:8px auto}.reward-art{width:230px}.success-page>.eyebrow{font-size:8px}.success-page .granted{font-size:14px;letter-spacing:1px}.success-page #earned-title{font-size:25px}.success-page h1{font-size:23px}.success-page>p{font-size:13px}}
+
+</style><style>
+.invitation-page{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:90px;align-items:start;max-width:1100px;margin:20px auto 35px}.invitation-actions{position:sticky;top:32px;padding-top:35px}.invitation-actions>.eyebrow{color:#6b56a2;font-size:8px}.invitation-actions h1{font-size:43px;line-height:1.5;margin:24px 0}.invitation-actions h1 span{color:#5d4abb;display:block}.invite-theme{font-size:14px;color:#585484}.player-achievement{border:2px solid var(--ink);background:var(--cream);box-shadow:4px 4px var(--ink);padding:18px 20px;margin:24px 0}.player-achievement>span{font:8px var(--pixel);color:#6d6386}.player-achievement p{margin:8px 0;font-size:16px}.player-achievement h2{margin:4px 0;font-size:23px;color:#6b4097}.invite-copy{font-size:14px;line-height:1.9;color:#5a5a7a;margin:25px 0}.invitation-actions>.primary{width:100%;padding:17px 20px}.invitation-actions>.primary span{font:10px var(--pixel)}.save-hint{font-size:11px;margin:15px 0}.invite-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.invite-links .secondary{padding:10px 13px;font-size:12px}.invite-links .text-button{font-size:12px}.pass-stage{min-width:0;text-align:center;position:relative;animation:pass-reveal .65s ease-out both;padding:0 12px 12px}.pass-stage:before{content:'';position:absolute;inset:10% -6% 0;background:radial-gradient(ellipse,#b79cff70,transparent 66%);z-index:-1}.rarity-tag{font:8px/1.8 var(--pixel);display:inline-block;margin-bottom:20px;border:2px solid #8f6aac;background:#ffedb3;padding:8px 18px;box-shadow:3px 3px #8f6aac;color:#55457a}.pass-stage canvas{width:100%;height:auto;display:block;box-shadow:9px 12px 0 #32355d30,0 12px 35px #46338130}.edition-mark{display:block;font:7px/1.8 var(--pixel);letter-spacing:1px;color:#6b6090;margin-top:20px}@keyframes pass-reveal{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}dialog{width:min(610px,calc(100% - 24px));max-height:90svh;overflow-y:auto;background:var(--cream);border:3px solid var(--ink);padding:20px;border-radius:0;box-shadow:7px 7px var(--ink);color:var(--ink)}dialog::backdrop{background:#22243bc9}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.dialog-head h2{font-size:19px}.dialog-head button{font-size:12px;min-width:76px;padding:8px}dialog p{font-size:13px}dialog img{display:block;width:100%;height:auto}.dialog-actions{display:flex;gap:14px;margin:18px 4px 6px 0}.dialog-actions a{flex:1;padding:12px;justify-content:center;font-size:14px}
+@media(max-width:1000px){.invitation-page{gap:38px}.invitation-actions h1{font-size:34px}.invitation-actions{padding-top:15px}}@media(max-width:760px){.invitation-page{grid-template-columns:minmax(0,1fr);gap:32px;max-width:500px;margin:0 auto}.invitation-actions{position:static;padding:0}.invitation-actions h1{font-size:32px;margin:15px 0}.invitation-actions>.eyebrow{font-size:7px}.invite-theme{font-size:12px}.player-achievement{padding:14px 16px;margin:20px 3px 18px 0}.player-achievement h2{font-size:22px}.invite-copy{font-size:13px;margin:20px 0}.pass-stage{padding:0 4px 8px}.rarity-tag{font-size:7px}.edition-mark{font-size:6px}.invite-links{gap:16px}.dialog-actions a{font-size:13px}dialog{padding:14px}.dialog-head h2{font-size:17px}}
+/* Stage 5: reminder stays outside the artwork; mobile reads card before saving. */
+.invitation-page{row-gap:28px}.invitation-actions{padding-top:8px;top:24px}.invitation-actions>.invitation-intro>.eyebrow{font:14px/1.6 sans-serif;letter-spacing:1px}.invitation-actions h1{font-size:38px;line-height:1.4;margin:16px 0}.invitation-actions .invite-theme{font-size:16px;line-height:1.8}.invitation-actions .player-achievement{margin:20px 0;padding:16px 20px}.player-achievement>span{font:14px/1.7 sans-serif}.player-achievement p{font-size:20px}.player-achievement h2{font-size:26px}.invite-location{font-size:16px;color:#3f3e63;margin:18px 0 24px}.save-reminder{padding:22px 20px;background:#fff0c9;border:2px solid var(--ink);box-shadow:4px 4px var(--ink)}.ticket-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:#f9c465;border:2px solid var(--ink);font:bold 24px monospace;box-shadow:2px 2px var(--ink);margin-bottom:12px}.save-reminder h2{font-size:23px;line-height:1.55;margin:0 0 12px}.save-reminder>p{font-size:16px;line-height:1.9;color:#39394f;margin:0 0 18px}.save-reminder #save{width:100%;justify-content:center;font-size:19px;padding:16px 12px;min-height:60px;background:#ffb44c;box-shadow:4px 4px var(--ink)}.save-reminder #save:hover:not(:disabled){background:#ffd074}.save-reminder .save-hint{font-size:14px;color:#4e4c63;margin:16px 0}.save-reminder .invite-links{gap:12px;justify-content:space-between}.save-reminder .secondary,.save-reminder .text-button{font-size:14px}.pass-stage{padding:0 6px 12px}.invitation-page canvas{margin:0}.save-reminder .error:empty{display:none}.save-reminder .error:not(:empty){margin-top:14px}
+@media(max-width:760px){.invitation-page{display:flex;flex-direction:column;gap:22px}.invitation-actions{display:contents}.invitation-intro{order:0;min-width:0;width:100%}.pass-stage{order:1;min-width:0;width:100%;padding:0 3px 8px}.save-reminder{order:2;min-width:0;width:100%;padding:18px 16px;margin:0 3px 12px 0}.invitation-intro h1{font-size:30px;margin:8px 0 14px}.invitation-intro .eyebrow{font:14px/1.6 sans-serif;margin:0}.invitation-intro .player-achievement{display:none}.invite-theme{font-size:16px;margin:0 0 10px}.invite-location{font-size:15px;margin:8px 0}.save-reminder h2{font-size:22px}.save-reminder>p{font-size:16px}.save-reminder #save{font-size:18px}.save-reminder .invite-links{gap:12px}}
+
+</style>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#"><span class="brand-icon" aria-hidden="true">&gt;_</span><span id="brand-name">1024.exe</span></a><span class="header-center">CODE. PLAY. CONNECT.</span><span class="header-status"><i></i> PLAYER READY <b>2026</b></span></header>
+  <main id="app" tabindex="-1"></main>
+  <footer><span>BUILT FOR THE PEOPLE WHO BUILD.</span><span>1024程序员节 <b>✦</b> 让创造力，走出代码。</span></footer>
+  <dialog id="image-dialog" aria-labelledby="image-title">
+    <div class="dialog-head"><h2 id="image-title">邀请函图片</h2><button id="close-dialog" class="secondary" aria-label="关闭图片预览">关闭 ×</button></div>
+    <p>手机可长按下方图片保存；也可打开原图后保存。</p>
+    <img id="export-image" alt="个人邀请函">
+    <div class="dialog-actions"><a id="download-image" class="primary" download="1024-程序员节邀请函.png">下载 PNG</a><a id="open-image" class="secondary" target="_blank" rel="noopener">打开原图 ↗</a></div>
+  </dialog>
+  <script>
+(()=>{
+"use strict";
+const __scenes={"ai-lab.svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjIwIiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxwYXRoIGQ9Ik05MCA1MTBoNjIwdjE4SDkweiIgZmlsbD0iIzIyMjQzYiIvPjxwYXRoIGQ9Ik0xNDAgNDkwaDUzMHYyMEgxNDB6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTI0NiAxOTJoMjg0djIzNEgyNDZ6TTIyMCAyMzBoMjZ2MTMyaC0yNnpNNTMwIDIzMGgyNnYxMzJoLTI2eiIgZmlsbD0iIzIyMjQzYiIvPjxwYXRoIGQ9Ik0yNTggMjA2aDI2MHYyMDRIMjU4eiIgZmlsbD0iI2M1YjNmZiIvPjxwYXRoIGQ9Ik0yNzcgMjM3aDIyMnYxMjBIMjc3eiIgZmlsbD0iIzRlNjVkZiIvPjxwYXRoIGQ9Ik0zMDYgMjY1aDQ0djM4aC00NHpNNDI2IDI2NWg0NHYzOGgtNDR6IiBmaWxsPSIjMzVkOWRmIi8+PHBhdGggZD0iTTMzOCAzMjBoMTAwdjEzSDMzOHoiIGZpbGw9IiNmZmY4ZWQiLz48cGF0aCBkPSJNMzcxIDE1OGgzMnYzNWgtMzJ6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTM2NSAxMzRoNDR2MjhoLTQ0eiIgZmlsbD0iI2ZmNzA5YSIvPjxwYXRoIGQ9Ik0yNzggNDI4aDM0djY1aC0zNHpNNDYxIDQyOGgzNHY2NWgtMzR6IiBmaWxsPSIjNGU2NWRmIi8+PHBhdGggZD0iTTExMSAxODhoOTJ2NzZoLTkyek01NzAgMzEwaDEwMnY2Nkg1NzB6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTEzMCAyMDloNTN2MTNoLTUzek0xMzAgMjMyaDM1djEwaC0zNXpNNTg4IDMyOGg2NHYxMmgtNjR6TTU4OCAzNTBoMzZ2MTBoLTM2eiIgZmlsbD0iIzlkNzZmNSIvPjwvc3ZnPg==", "detective.svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjIwIiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxwYXRoIGQ9Ik05MCA1MTBoNjIwdjE4SDkweiIgZmlsbD0iIzIyMjQzYiIvPjxwYXRoIGQ9Ik0xNDAgNDkwaDUzMHYyMEgxNDB6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTE0NiAxODRoMzYwdjI2NEgxNDZ6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTE1OCAxOTZoMzM2djIyNEgxNTh6IiBmaWxsPSIjMzI0ZTYyIi8+PHBhdGggZD0iTTE3NCAyMTVoMzA0djI0SDE3NHoiIGZpbGw9IiMzNWQ5ZGYiLz48cGF0aCBkPSJNMTc3IDI2MmgxMjB2MTJIMTc3ek0xNzcgMjkwaDIxMHYxMkgxNzd6TTE3NyAzMThoMTYwdjEySDE3N3pNMTc3IDM0NmgxOTV2MTJIMTc3eiIgZmlsbD0iI2E2ZWNjOCIvPjxwYXRoIGQ9Ik0yNzMgNDQ4aDEwMHY0MEgyNzN6IiBmaWxsPSIjNGU2NWRmIi8+PHBhdGggZD0iTTIzMCA0NzhoMTg2djE4SDIzMHoiIGZpbGw9IiMyMjI0M2IiLz48cGF0aCBkPSJNNDA4IDI3NWgxMjh2MjBoMjR2MTI4aC0yNHYyMEg0MDh2LTIwaC0yNFYyOTVoMjR6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTQxOCAyOTloMTA2djExMkg0MTh6IiBmaWxsPSIjYjlmZmZmIi8+PHBhdGggZD0iTTQzNiAzMThoNjh2MTZoLTY4ek00MzYgMzU0aDY4djE2aC02OHoiIGZpbGw9IiMzNWQ5ZGYiLz48cGF0aCBkPSJNNTI4IDQxOGgzMHYyOGgzMHYyOGgzMHYyOGgtNDJ2LTI4aC0yOHYtMjZoLTIweiIgZmlsbD0iI2ZmYjQ0YyIvPjxwYXRoIGQ9Ik01ODIgMTcyaDI2djY0aDIydjIyaC03MHYtMjJoMjJ6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTU3NCAyMzdoNDJ2MTJoLTQyeiIgZmlsbD0iI2ZmNzA5YSIvPjwvc3ZnPg==", "medal.svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjIwIiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxwYXRoIGQ9Ik0yNzAgMzkzbC00MCAxMzggOTItNDAgMzMgNjkgNDgtMTY4ek00MjEgMzkybDQ3IDE2NyAzNS03MCA4NSA0MS00Ni0xNDB6IiBmaWxsPSIjNGU2NWRmIiBzdHJva2U9IiMyMjI0M2IiIHN0cm9rZS13aWR0aD0iMTIiLz48cGF0aCBkPSJNMzA5IDEyMGgxNzZ2MjhoNTR2MzhoMzJ2NTRoMjh2MTUwaC0yOHY1NGgtNDB2MzJoLTU0djI2SDMwM3YtMjZoLTU0di0zOGgtMzJ2LTU0aC0yNlYyMzRoMjZ2LTU0aDQwdi0zMmg1MnoiIGZpbGw9IiMyMjI0M2IiLz48cGF0aCBkPSJNMzE4IDEzNGgxNTZ2MjhoNTN2MzhoMjl2NTJoMjh2MTI1aC0yN3Y1M2gtMzh2MzBoLTU0djI3SDMxNnYtMjdoLTUzdi0zN2gtMzB2LTUyaC0yN1YyNDdoMjd2LTUzaDM3di0zMWg0OHoiIGZpbGw9IiNmZmI0NGMiLz48cGF0aCBkPSJNMzMxIDE3OGgxMjl2MjZoNDJ2MzZoMjV2MTI3aC0yNnY0M2gtMzl2MjRIMzM0di0yNGgtNDJ2LTQwaC0yNFYyNDVoMjV2LTQwaDM4eiIgZmlsbD0iI2ZmZTlhNyIvPjxwYXRoIGQ9Ik0zNTMgMjY3aDI4di00OWgyOXY0OWg0OXYzMGgtMjV2MjloLTIzdjQ3aC0zMXYtNDloLTI2di0yOGgtMjR2LTI5eiIgZmlsbD0iI2ZmYjQ0YyIvPjwvc3ZnPg==", "office.svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjIwIiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxwYXRoIGQ9Ik05MCA1MTBoNjIwdjE4SDkweiIgZmlsbD0iIzIyMjQzYiIvPjxwYXRoIGQ9Ik0xNDAgNDkwaDUzMHYyMEgxNDB6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTEyMiAxNTBoMjcwdjE5NEgxMjJ6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTEzNiAxNjRoMjQydjE2NkgxMzZ6IiBmaWxsPSIjYTRlMmZmIi8+PHBhdGggZD0iTTEzNiAyNzJoMjQydjU4SDEzNnoiIGZpbGw9IiM0ZTY1ZGYiLz48cGF0aCBkPSJNMjUwIDE2NGgxMnYxNjZIMjUwek0xMzYgMjQwaDI0MnYxMkgxMzZ6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTQwNSAyMDJoMjQwdjkwSDQwNXpNNDMxIDI5MmgyNHYyNGgtMjR6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTQyNyAyMjBoMTgydjEySDQyN3pNNDI3IDI0NmgxMzZ2MTJINDI3eiIgZmlsbD0iI2ZmYjQ0YyIvPjxwYXRoIGQ9Ik0yMTAgMzkwaDQwMHYyOEgyMTB6TTIzMCA0MThoMjB2NzRoLTIwek01NzAgNDE4aDIwdjc0aC0yMHoiIGZpbGw9IiMyMjI0M2IiLz48cGF0aCBkPSJNMzA4IDMwN2gxNDN2ODVIMzA4eiIgZmlsbD0iIzRlNjVkZiIvPjxwYXRoIGQ9Ik0zMjAgMzE5aDEyMHY1OEgzMjB6IiBmaWxsPSIjZDdkY2ZmIi8+PHBhdGggZD0iTTQ4MyAzNDZoNDV2NDVoLTQ1ek01MjggMzU2aDE2djIyaC0xNnoiIGZpbGw9IiNmZjcwOWEiLz48cGF0aCBkPSJNNTk4IDEyNmgyNHY3MGgtMjR6TTU3NSAxNDloNzB2MjRoLTcweiIgZmlsbD0iI2ZmYjQ0YyIvPjwvc3ZnPg==", "portal.svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjIwIiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiM3ODk3ZjQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiNWVhZmYiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iZ2F0ZSIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjYTk5MmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDA1YmNiIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZD0iTTAgMGg4MDB2NjIwSDB6IiBmaWxsPSJ1cmwoI3NreSkiLz48cGF0aCBkPSJNMCAzOTBoNjR2LTQwaDY0djcwaDcwdi0yOGg3MnY4MGg2MnYtMzJoNjJ2LTQ0aDY0djQwaDY2di02Mmg2NHY0Mmg3MHYtODBoNjJ2NTBoODB2MjM0SDB6IiBmaWxsPSIjOGNiY2VjIi8+PHBhdGggZD0iTTAgNDg4aDgwdi0yNWg2NHY1MGg5OHYtMjJoODB2NDJoMTI0di01OGg5MHYzN2g5OHYtNThoODB2NDZoODZ2MTIwSDB6IiBmaWxsPSIjNjk3ZGRkIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzUgNjgpIHNjYWxlKC44KSI+PHBhdGggZD0iTTAgMjRoMjRWOGg0OFYwaDQwdjE2aDMydjE2aDI0djI0SDB6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTAgNDhoMTY4djhIMHoiIGZpbGw9IiNhMGNkZTkiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTgwIDQyKSBzY2FsZSguODUpIj48cGF0aCBkPSJNMCAyNGgyNFY4aDQ4VjBoNDB2MTZoMzJ2MTZoMjR2MjRIMHoiIGZpbGw9IiNmZmY4ZWQiLz48cGF0aCBkPSJNMCA0OGgxNjh2OEgweiIgZmlsbD0iI2EwY2RlOSIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1ODAgMjgwKSBzY2FsZSguNSkiPjxwYXRoIGQ9Ik0wIDI0aDI0VjhoNDhWMGg0MHYxNmgzMnYxNmgyNHYyNEgweiIgZmlsbD0iI2ZmZjhlZCIvPjxwYXRoIGQ9Ik0wIDQ4aDE2OHY4SDB6IiBmaWxsPSIjYTBjZGU5Ii8+PC9nPjxwYXRoIGQ9Ik0xMDAgMTIxaDZ2Nmg2djZoLTZ2NmgtNnYtNmgtNnYtNmg2eiIgZmlsbD0iI2ZmZjhlZCIvPjxwYXRoIGQ9Ik02NjAgMTIxaDZ2Nmg2djZoLTZ2NmgtNnYtNmgtNnYtNmg2eiIgZmlsbD0iI2ZmYjQ0YyIvPjxwYXRoIGQ9Ik03MDAgMjgxaDZ2Nmg2djZoLTZ2NmgtNnYtNmgtNnYtNmg2eiIgZmlsbD0iI2ZmZjhlZCIvPjxwYXRoIGQ9Ik04MCAzODFoNnY2aDZ2NmgtNnY2aC02di02aC02di02aDZ6IiBmaWxsPSIjZmZiNDRjIi8+PHBhdGggZD0iTTYxMCA0MzFoNnY2aDZ2NmgtNnY2aC02di02aC02di02aDZ6IiBmaWxsPSIjMzVkOWRmIi8+PHBhdGggZD0iTTMwMCA3MWg2djZoNnY2aC02djZoLTZ2LTZoLTZ2LTZoNnoiIGZpbGw9IiNmZmY4ZWQiLz48cGF0aCBkPSJNMTIyIDQ0MGwyNjUtODMgMjg3IDk3LTI2OSAxMjF6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTEyMiA0MThsMjY1LTgzIDI4NyA5Ny0yNjkgMTIxeiIgZmlsbD0iIzRlNjVkZiIvPjxwYXRoIGQ9Ik0xMjIgNDE4djI1bDI4MiAxMzF2LTIyeiIgZmlsbD0iIzM1M2U5YiIvPjxwYXRoIGQ9Ik00MDQgNTUybDI3MC0xMjB2MjhMNDA0IDU4M3oiIGZpbGw9IiMyMzJmNzQiLz48cGF0aCBkPSJNMTU2IDQyMGwyMzItNzAgMjUwIDg0LTIzNCA5NnoiIGZpbGw9IiM4Yzc5ZWQiLz48cGF0aCBkPSJNMjUwIDQzMmwxNDUtNDYgMTU3IDUyLTE0OCA1OHoiIGZpbGw9IiMzNWQ5ZGYiLz48cGF0aCBkPSJNMjg3IDQzOGwxMTAtMzEgMTIwIDM0LTExNSAzN3oiIGZpbGw9IiNmZmY4ZWQiLz4KPHBhdGggZD0iTTIxMCAzNzRWMTc0aDI0di00MGgzNHYtMjRoMjY0djI0aDM0djQwaDI0djIwNGgtNDhWMTk0aC0yNHYtMjZIMjgydjI2aC0yNHYxODB6IiBmaWxsPSIjMjIyNDNiIi8+CjxwYXRoIGQ9Ik0yMTggMzcyVjE3OGgyNHYtMzZoMzR2LTI0aDI0OHYyNGgzNHYzNmgyNHYxOTRoLTMwVjE4NGgtMjR2LTMwSDI3MnYzMGgtMjR2MTg4eiIgZmlsbD0iI2ZmYjQ0YyIvPgo8cGF0aCBkPSJNMjMwIDM1MlYxODJoMjR2LTMwaDI2di0yMmgyMzZ2MjJoMjh2MzBoMjR2MTcwaC0xNlYxODRoLTI0di0zMEgyNzJ2MzBoLTI0djE2OHoiIGZpbGw9IiNmZmYzYWYiLz4KPHBhdGggZD0iTTI1OCAzNzZWMTk1aDI0di0yN2gyMzZ2MjdoMjR2MTgxbC0xNDMgNDl6IiBmaWxsPSJ1cmwoI2dhdGUpIi8+CjxwYXRoIGQ9Ik0yNzUgMzQ2VjIxMmgyMXYtMjhoMjA3djI4aDIwdjEzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzVkOWRmIiBzdHJva2Utd2lkdGg9IjgiLz4KPHBhdGggZD0iTTMwMyAyOTVoMTkzdjE2SDMwM3pNMjg0IDMzNmgyMzV2OEgyODR6IiBmaWxsPSIjYzJiN2ZmIiBvcGFjaXR5PSIuMzUiLz4KPHBhdGggZD0iTTMzMyA0ODhoMTMydjE4SDMzM3pNMzE0IDUxMmgxNzN2MjBIMzE0ek0yODcgNTQwaDIyNnYyMkgyODd6TTI1MSA1NzNoMjk1djIySDI1MXpNMjEyIDYxMWgzNzR2OUgyMTJ6IiBmaWxsPSIjZmZjZjc2Ii8+CjxwYXRoIGQ9Ik0xNjUgMzIzaDMzdjMzaC0zM3oiIGZpbGw9IiNmZjcwOWEiLz48cGF0aCBkPSJNMTczIDMxNWgxN3Y0OWgtMTd6IiBmaWxsPSIjZmZkNGRmIi8+CjxwYXRoIGQ9Ik02MjQgMzQwaDMydjMyaC0zMnoiIGZpbGw9IiNmZmI0NGMiLz48cGF0aCBkPSJNNjMyIDMzMmgxNnY0OGgtMTZ6IiBmaWxsPSIjZmZmM2JmIi8+CjxwYXRoIGQ9Ik0xMDIgNDk0aDQ0djE0aC00NHpNMTE0IDQ4MGgyMHYxNGgtMjB6TTYyOCA1MTBoNDh2MTVoLTQ4ek02NDAgNDkyaDIydjE4aC0yMnoiIGZpbGw9IiMzNWQ5ZGYiLz4KPHBhdGggZD0iTTUwIDU1M2g5MHYxNkg1MHpNNjggNTI5aDIydjI0SDY4ek05MyA1MzloMTh2MTRIOTN6IiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzEwLjUiIHk9IjI0MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzMDAuNSIgeT0iMjUxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjMxMC41IiB5PSIyNTEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzEwLjUiIHk9IjI2MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzMTAuNSIgeT0iMjcxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjMxMC41IiB5PSIyODEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzEwLjUiIHk9IjI5MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzMDAuNSIgeT0iMzAxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjMxMC41IiB5PSIzMDEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzIwLjUiIHk9IjMwMS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzNjAuNSIgeT0iMjQxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjM3MC41IiB5PSIyNDEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzgwLjUiIHk9IjI0MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzNTAuNSIgeT0iMjUxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjM5MC41IiB5PSIyNTEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzUwLjUiIHk9IjI2MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzODAuNSIgeT0iMjYxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjM5MC41IiB5PSIyNjEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzUwLjUiIHk9IjI3MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzNzAuNSIgeT0iMjcxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjM5MC41IiB5PSIyNzEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzUwLjUiIHk9IjI4MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzNjAuNSIgeT0iMjgxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjM5MC41IiB5PSIyODEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzUwLjUiIHk9IjI5MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzOTAuNSIgeT0iMjkxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjM2MC41IiB5PSIzMDEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzcwLjUiIHk9IjMwMS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSIzODAuNSIgeT0iMzAxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjQyMC41IiB5PSIyNDEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNDMwLjUiIHk9IjI0MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI0NDAuNSIgeT0iMjQxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjQxMC41IiB5PSIyNTEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNDUwLjUiIHk9IjI1MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI0NTAuNSIgeT0iMjYxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjQ0MC41IiB5PSIyNzEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNDMwLjUiIHk9IjI4MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI0MjAuNSIgeT0iMjkxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjQxMC41IiB5PSIzMDEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNDIwLjUiIHk9IjMwMS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI0MzAuNSIgeT0iMzAxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjQ0MC41IiB5PSIzMDEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNDUwLjUiIHk9IjMwMS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI1MDAuNSIgeT0iMjQxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjQ5MC41IiB5PSIyNTEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNTAwLjUiIHk9IjI1MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI0ODAuNSIgeT0iMjYxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjUwMC41IiB5PSIyNjEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNDcwLjUiIHk9IjI3MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI1MDAuNSIgeT0iMjcxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjQ3MC41IiB5PSIyODEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNDgwLjUiIHk9IjI4MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI0OTAuNSIgeT0iMjgxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjUwMC41IiB5PSIyODEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iNTEwLjUiIHk9IjI4MS41IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiMyMjI0M2IiLz48cmVjdCB4PSI1MDAuNSIgeT0iMjkxLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzIyMjQzYiIvPjxyZWN0IHg9IjUwMC41IiB5PSIzMDEuNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMjIyNDNiIi8+PHJlY3QgeD0iMzA3IiB5PSIyMzgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjI5NyIgeT0iMjQ4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzMDciIHk9IjI0OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzA3IiB5PSIyNTgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjMwNyIgeT0iMjY4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzMDciIHk9IjI3OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzA3IiB5PSIyODgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjI5NyIgeT0iMjk4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzMDciIHk9IjI5OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzE3IiB5PSIyOTgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjM1NyIgeT0iMjM4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzNjciIHk9IjIzOCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzc3IiB5PSIyMzgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjM0NyIgeT0iMjQ4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzODciIHk9IjI0OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzQ3IiB5PSIyNTgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjM3NyIgeT0iMjU4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzODciIHk9IjI1OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzQ3IiB5PSIyNjgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjM2NyIgeT0iMjY4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzODciIHk9IjI2OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzQ3IiB5PSIyNzgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjM1NyIgeT0iMjc4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzODciIHk9IjI3OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzQ3IiB5PSIyODgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjM4NyIgeT0iMjg4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSIzNTciIHk9IjI5OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iMzY3IiB5PSIyOTgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjM3NyIgeT0iMjk4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0MTciIHk9IjIzOCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDI3IiB5PSIyMzgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQzNyIgeT0iMjM4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0MDciIHk9IjI0OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDQ3IiB5PSIyNDgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQ0NyIgeT0iMjU4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0MzciIHk9IjI2OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDI3IiB5PSIyNzgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQxNyIgeT0iMjg4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0MDciIHk9IjI5OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDE3IiB5PSIyOTgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQyNyIgeT0iMjk4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0MzciIHk9IjI5OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDQ3IiB5PSIyOTgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQ5NyIgeT0iMjM4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0ODciIHk9IjI0OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDk3IiB5PSIyNDgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQ3NyIgeT0iMjU4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0OTciIHk9IjI1OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDY3IiB5PSIyNjgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQ5NyIgeT0iMjY4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0NjciIHk9IjI3OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNDc3IiB5PSIyNzgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQ4NyIgeT0iMjc4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0OTciIHk9IjI3OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PHJlY3QgeD0iNTA3IiB5PSIyNzgiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZjhlZCIvPjxyZWN0IHg9IjQ5NyIgeT0iMjg4IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmY4ZWQiLz48cmVjdCB4PSI0OTciIHk9IjI5OCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmOGVkIi8+PC9zdmc+", "servers.svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjIwIiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxwYXRoIGQ9Ik05MCA1MTBoNjIwdjE4SDkweiIgZmlsbD0iIzIyMjQzYiIvPjxwYXRoIGQ9Ik0xNDAgNDkwaDUzMHYyMEgxNDB6IiBmaWxsPSIjZmZmOGVkIi8+PHBhdGggZD0iTTE1NSAxNzRoMTQ0djMwNkgxNTV6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTE2NSAxODRoMTI0djI4MEgxNjV6IiBmaWxsPSIjNGU2NWRmIi8+PHBhdGggZD0iTTE3NSAyMDRoMTA0djQ1SDE3NXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMTg3IDIyMGgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTIxMCAyMjBoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTE3NSAyNzBoMTA0djQ1SDE3NXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMTg3IDI4NmgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTIxMCAyODZoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTE3NSAzMzZoMTA0djQ1SDE3NXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMTg3IDM1MmgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTIxMCAzNTJoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTE3NSA0MDJoMTA0djQ1SDE3NXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMTg3IDQxOGgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTIxMCA0MThoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTMyOCAxNzRoMTQ0djMwNkgzMjh6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTMzOCAxODRoMTI0djI4MEgzMzh6IiBmaWxsPSIjNGU2NWRmIi8+PHBhdGggZD0iTTM0OCAyMDRoMTA0djQ1SDM0OHoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMzYwIDIyMGgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTM4MyAyMjBoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTM0OCAyNzBoMTA0djQ1SDM0OHoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMzYwIDI4NmgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTM4MyAyODZoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTM0OCAzMzZoMTA0djQ1SDM0OHoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMzYwIDM1MmgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTM4MyAzNTJoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTM0OCA0MDJoMTA0djQ1SDM0OHoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNMzYwIDQxOGgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTM4MyA0MThoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTUwMSAxNzRoMTQ0djMwNkg1MDF6IiBmaWxsPSIjMjIyNDNiIi8+PHBhdGggZD0iTTUxMSAxODRoMTI0djI4MEg1MTF6IiBmaWxsPSIjNGU2NWRmIi8+PHBhdGggZD0iTTUyMSAyMDRoMTA0djQ1SDUyMXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNNTMzIDIyMGgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTU1NiAyMjBoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTUyMSAyNzBoMTA0djQ1SDUyMXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNNTMzIDI4NmgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTU1NiAyODZoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTUyMSAzMzZoMTA0djQ1SDUyMXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNNTMzIDM1MmgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTU1NiAzNTJoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTUyMSA0MDJoMTA0djQ1SDUyMXoiIGZpbGw9IiMyZTM1NWEiLz48cGF0aCBkPSJNNTMzIDQxOGgxMnYxMmgtMTJ6IiBmaWxsPSIjZmY3MDlhIi8+PHBhdGggZD0iTTU1NiA0MThoNTR2NWgtNTR6IiBmaWxsPSIjOTJhYmRmIi8+PHBhdGggZD0iTTM3OSAxMDNoMzB2MThoMjJ2NTBoLTc0di01MGgyMnoiIGZpbGw9IiNmZmI0NGMiLz48cGF0aCBkPSJNMzg3IDExOGgxNHYyN2gtMTR6TTM4NyAxNTFoMTR2MTBoLTE0eiIgZmlsbD0iIzIyMjQzYiIvPjwvc3ZnPg==", "sunset.svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjIwIiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxwYXRoIGQ9Ik0xMDMgMTEwaDU4MHYzODVIMTAzeiIgZmlsbD0iIzIyMjQzYiIvPjxwYXRoIGQ9Ik0xMTcgMTI0aDU1MnYzNTVIMTE3eiIgZmlsbD0iI2I1OTlmNCIvPjxwYXRoIGQ9Ik0xMTcgMjM5aDU1MnYyNDBIMTE3eiIgZmlsbD0iI2ZmYjdhMCIvPjxwYXRoIGQ9Ik0zMjAgMjA4aDE0NHYzMGgzMHYxMTRIMjkwVjIzOGgzMHoiIGZpbGw9IiNmZmU1OWIiLz48cGF0aCBkPSJNMTE3IDM4MGg2NXYtMzVoNTJ2NjRoNjJ2LTQyaDUxdjUzaDk0di04MWg2MHY0Mmg0OHYtMjRoNTd2LTMzaDYzdjE1NUgxMTd6IiBmaWxsPSIjNjg2M2IwIi8+PHBhdGggZD0iTTM4MSAxMjRoMTR2MzU1aC0xNHpNMTE3IDI5MGg1NTJ2MTRIMTE3eiIgZmlsbD0iIzIyMjQzYiIvPjxwYXRoIGQ9Ik0xNjMgNDYzaDQ2NHYyMkgxNjN6TTE5MiA0ODVoMjB2MzhoLTIwek01NzAgNDg1aDIwdjM4aC0yMHoiIGZpbGw9IiMyMjI0M2IiLz48cGF0aCBkPSJNNDUwIDM3MGgxMzJ2OTBINDUweiIgZmlsbD0iI2ZmZjhlZCIvPjxwYXRoIGQ9Ik00NjEgMzgxaDExMHY2NEg0NjF6IiBmaWxsPSIjNGU2NWRmIi8+PC9zdmc+"};
+const __modules=Object.create(null);
+__modules["js/config.js"]=(()=>{
+// 所有活动信息、题目、答案、反馈和结局集中配置；不包含最终视觉。
+const event = {
+  projectName: '1024.exe', projectSubtitle: '程序员生存挑战', year: '2026',
+  theme: '以代码对话世界·与AI共创未来',
+  title: '1024程序员节', subtitle: '专属电子邀请函', activity: '线下游园活动',
+  date: '2026年10月23日', location: '传音·上海 3号楼 黑洞',
+  invitation: '暂时放下键盘，让快乐上线。\n邀你一起走出代码世界，在游园中相遇，\n一起玩、一起笑，为每一份创造力喝彩。',
+};
+const invitationSave = {
+  title: '别忘了保存你的通关邀请函！',
+  body: '10月23日活动当天，凭此邀请函参与线下游园游戏及现场抽奖。现在就保存好，现场亮出你的专属身份！',
+  button: '保存我的专属邀请函',
+};
+const messages = {
+  nameError: '请输入 1–20 个字符的姓名，不含不可见控制字符。',
+  rules: '前四关答对后继续，可无限重试；第五关任意选择均可通关。没有倒计时。',
+  unlocked: 'ACCESS GRANTED', complete: '邀请函已解锁',
+  privacy: '姓名仅在当前页面中使用，不上传服务器；刷新后重新开始。',
+  saveError: '图片生成失败，请重试。',
+};
+const questions = [
+  {
+    id: 'unicode', type: 'scanner', title: '消失的Bug',
+    story: '两段代码看起来一模一样，Bug却藏在里面……',
+    prompt: '抓出那个冒牌字符！',
+    code: 'const userName = "admin";\nconst userN\u0430me = "admin";',
+    identifiers: ['userName', 'userN\u0430me'], targetCodePoint: 0x0430, reference: 'a',
+    scannerHelp: '左右滑动，或用下方箭头逐字检查。',
+    retry: ['Bug：差一点就被你发现了！', '这个字符表示自己很无辜。', '再看一眼，冒牌货还在里面。'],
+    success: 'BUG FOUND！抓到了！这货居然不是同一个a！',
+    comparison: 'а · U+0430（西里尔字母） ≠ a · U+0061（拉丁字母）',
+    explanation: '一个是拉丁字母a，另一个是西里尔字母а。看着像，变量名却不同。',
+  },
+  {
+    id: 'promises', type: 'choice', title: 'AI写的代码，真的能跑吗？',
+    story: '放心，这段代码我有100%的把握！',
+    code: 'const numbers = [1, 2, 3];\nconst result = numbers.map(async n => n * 2);\nconsole.log(result);',
+    prompt: '猜猜控制台会输出什么？',
+    options: ['[2, 4, 6]', '3个Promise对象', 'undefined', '直接抛出异常'], correctIndex: 1,
+    retry: ['AI：谢谢你选择相信我！', 'AI：你看，我们的想法完全一致！'],
+    success: 'AI：这一定是环境问题！',
+    explanation: 'async 回调返回 Promise，map 不会自动等待。用 await Promise.all(result) 才能拿到 [2, 4, 6]（需在 async 函数或模块中使用）。',
+    answerFound: '答对了：3个Promise对象。', confidenceStart: 'AI CONFIDENCE', verified: 'TRUST BUT VERIFY',
+  },
+  {
+    id: 'requirements', type: 'chat', title: '需求翻译大师',
+    story: '这个需求很简单～', introFollowUp: '就在原来的基础上，稍微改一点点。',
+    prompt: '你的内心OS是？',
+    options: ['5分钟就能改完，下班！', '代码不用动，改个文案就行', '先别急，得看看影响了多少模块', '产品经理已经想好了全部技术方案'], correctIndex: 2,
+    retry: ['PM：太好了！那我再加一点点～', '需求复杂度：正在偷偷上涨……'],
+    success: '需求翻译成功，需求数量失控。',
+    followUps: ['对了，还有一个很小的补充需求……', '这个应该不影响进度吧？', '我们顺便支持一下其他场景？'], bonus: '+99 REQUIREMENTS',
+  },
+  {
+    id: 'incident', type: 'logs', title: '生产环境炸了！',
+    story: '17:42 订单接口持续500！',
+    premise: '仅本模拟系统：timeoutMs=0 表示立即超时。真实框架语义可能不同。',
+    logs: [
+      { label: 'API', content: '17:42:00 [INFO] Release v2.4 deployed\n17:42:02 [INFO] App started\n17:42:06 [WARN] PaymentClient config: timeoutMs=0\n17:42:07 [ERROR] PaymentClient timeout: request aborted' },
+      { label: 'DB', content: '17:42:01 [INFO] Connection pool healthy\n17:42:05 [INFO] Query latency p95=12ms\n17:42:07 [INFO] No connection errors' },
+      { label: 'Redis', content: '17:42:01 [INFO] Redis connected\n17:42:04 [INFO] Cache hit rate=96%\n17:42:07 [INFO] Redis latency p95=2ms' },
+    ],
+    prompt: '查日志，找到罪魁祸首。',
+    options: ['数据库连接池耗尽', 'Redis缓存失效', '新版本把PaymentClient超时配置设为0', '服务器CPU过载'], correctIndex: 2,
+    retry: ['不是它！服务器表示很委屈。', '警报还在响，再查查！'],
+    success: '找到罪魁祸首了，快把超时配置修回来！', repaired: '系统活了！今天不用通宵了！', recovery: ['timeoutMs: 0 → 3000', 'SERVICE RECOVERED'],
+    explanation: '发布后超时配置变成了0。数据库和Redis日志正常，线索指向PaymentClient。',
+  },
+  {
+    id: 'friday', type: 'ending', title: '周五17:59生存挑战',
+    story: '有个很小的改动，能不能现在上线？',
+    prompt: '周五17:59，你怎么选？',
+    options: ['打开IDE，先看看能不能改', '建议下周评估，先走变更流程', '先问清楚：具体要改哪里？', '先检查监控、测试和回滚预案'],
+    endings: [
+      { title: '无畏上线勇士', feedback: '你打开了IDE，周末也向你打开了怀抱。' },
+      { title: '周五发布守门员', feedback: '你的变更流程，守住了整个周末。' },
+      { title: '需求边界侦探', feedback: '一个问题问下去，PM开始重新整理需求。' },
+      { title: '生产环境守护者', feedback: '你守住的不只是生产环境，还有大家的周末。' },
+    ],
+  },
+];
+
+return {event,invitationSave,messages,questions};
+})();
+__modules["js/game.js"]=(()=>{
+// 状态只存在于内存。视图不可自行推进未通过的关卡。
+function createGame(questions) {
+  let name = '', level = 0, passed = false, title = '', finished = false, repairPending = false;
+  return {
+    get snapshot() { return { name, level, passed, title, finished }; },
+    reset() { name = ''; level = 0; passed = false; title = ''; finished = false; repairPending = false; },
+    start(value) {
+      const clean = value.trim();
+      if (!clean || [...clean].length > 20 || /[\p{Cc}\p{Cf}]/u.test(clean)) return false;
+      name = clean; level = 0; passed = false; title = ''; finished = false; repairPending = false; return true;
+    },
+    answer(answer) {
+      if (!name || passed || repairPending || finished) return { accepted: false };
+      const q = questions[level];
+      let correct = false;
+      if (q.type === 'scanner') {
+        const char = [...(q.identifiers[answer?.row] ?? '')][answer?.index];
+        correct = char?.codePointAt(0) === q.targetCodePoint;
+      } else {
+        if (!Number.isInteger(answer) || answer < 0 || answer >= q.options.length) return { accepted: false };
+        correct = q.type === 'ending' || answer === q.correctIndex;
+      }
+      repairPending = correct && q.type === 'logs';
+      passed = correct && !repairPending;
+      const ending = q.type === 'ending' ? q.endings[answer] : null;
+      if (ending) title = ending.title;
+      return { accepted: true, correct, ending };
+    },
+    repair() {
+      if (!repairPending || !name || finished) return false;
+      repairPending = false; passed = true; return true;
+    },
+    advance() {
+      if (!name || !passed || finished) return false;
+      if (level === questions.length - 1) finished = true;
+      else { level++; passed = false; }
+      return true;
+    },
+  };
+}
+
+return {createGame};
+})();
+__modules["js/performance.js"]=(()=>{
+// A short, skippable timeline. Cancel on page changes so old scenes cannot mutate new ones.
+function createPerformance() {
+  let jobs = [], timers = [], done = null;
+  const clear = () => { timers.forEach(clearTimeout); timers = []; };
+  const run = job => { if (!job.ran) { job.ran = true; job.action(); } };
+  const skip = () => {
+    clear(); jobs.forEach(run); jobs = [];
+    const callback = done; done = null; callback?.();
+  };
+  return {
+    play(steps, duration, onDone) {
+      clear(); jobs = steps.map(([at, action]) => ({ at, action, ran: false })); done = onDone;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { skip(); return; }
+      for (const job of jobs) {
+        if (!job.at) run(job); else timers.push(setTimeout(() => run(job), job.at));
+      }
+      timers.push(setTimeout(skip, duration));
+    },
+    skip,
+    cancel() { clear(); jobs = []; done = null; },
+  };
+}
+
+return {createPerformance};
+})();
+__modules["js/levels.js"]=(()=>{
+// 功能视图：通过 onAnswer 回调提交答案；样式不参与答案判定。
+function mountLevel(host, q, onAnswer) {
+  const node = (tag, text, className) => {
+    const el = document.createElement(tag); if (text !== undefined) el.textContent = text;
+    if (className) el.className = className; return el;
+  };
+  if (q.code && q.type !== 'scanner') host.append(node('pre', q.code, 'code-block'));
+  if (q.type === 'scanner') {
+    const grid = node('div', undefined, 'scanner');
+    const inspector = node('div', undefined, 'inspector'); inspector.setAttribute('aria-live', 'polite');
+    const controls = node('div', undefined, 'scanner-controls');
+    const previous = node('button', '← 上一个'); const next = node('button', '下一个 →');
+    const mark = node('button', '标记当前字符为异常', 'primary'); mark.id = 'mark-character';
+    const chars = []; let selected = 0; let complete = false;
+    const select = index => {
+      if (complete) return;
+      selected = index;
+      chars.forEach((item, i) => item.button.setAttribute('aria-pressed', String(i === index)));
+      const item = chars[index];
+      const suspicious = item.char.codePointAt(0) === q.targetCodePoint;
+      inspector.classList.toggle('scan-alert', suspicious);
+      chars.forEach((c, i) => c.button.classList.toggle('scan-alert', i === index && suspicious));
+      const left = item.button.offsetLeft;
+      if (left < grid.scrollLeft) grid.scrollLeft = left;
+      else if (left + item.button.offsetWidth > grid.scrollLeft + grid.clientWidth) grid.scrollLeft = left + item.button.offsetWidth - grid.clientWidth;
+      inspector.replaceChildren(node('strong', item.char, 'enlarged-character'), node('span', `第 ${item.row + 1} 行 · 第 ${item.index + 1} 个字符 · ${codePoint(item.char)}`));
+      previous.disabled = index === 0; next.disabled = index === chars.length - 1;
+    };
+    q.identifiers.forEach((identifier, row) => {
+      grid.append(node('p', `${row + 1} · ${identifier}`, 'scan-row-label'));
+      grid.setAttribute('aria-label', '变量名字符，可左右滑动检查');
+      const line = node('div', undefined, 'characters');
+      [...identifier].forEach((char, index) => {
+        const button = node('button', char, 'character');
+        button.dataset.row = row; button.dataset.index = index;
+        button.setAttribute('aria-label', `第 ${row + 1} 行，第 ${index + 1} 个字符 ${char}`);
+        const position = chars.length; chars.push({ button, char, row, index });
+        button.addEventListener('click', () => select(position)); line.append(button);
+      }); grid.append(line);
+    });
+    previous.addEventListener('click', () => select(Math.max(0, selected - 1)));
+    next.addEventListener('click', () => select(Math.min(chars.length - 1, selected + 1)));
+    mark.addEventListener('click', () => { if (!complete) { const { row, index } = chars[selected]; onAnswer({ row, index }); } });
+    controls.append(previous, next); host.append(grid, node('p', q.scannerHelp, 'scan-scroll-hint'), inspector, controls, mark); select(0);
+    return { pass() { complete = true; mark.disabled = true; previous.disabled = true; next.disabled = true; chars[selected].button.classList.add('bug-locked'); inspector.classList.add('locked'); }, dispose() {} };
+  }
+  if (q.type === 'logs') {
+    const tabs = node('div', undefined, 'log-tabs'); tabs.setAttribute('role', 'tablist'); tabs.setAttribute('aria-label', '服务日志');
+    const panel = node('pre', undefined, 'code-block logs'); panel.id = 'log-panel'; panel.tabIndex = 0; panel.setAttribute('role', 'tabpanel');
+    const select = index => {
+      [...tabs.children].forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
+      panel.replaceChildren(...q.logs[index].content.split('\n').map((line, i, lines) => {
+        const span = node('span', line + (i < lines.length - 1 ? '\n' : ''), `log-line log-${line.includes('[ERROR]') ? 'error' : line.includes('[WARN]') ? 'warn' : 'info'}`);
+        return span;
+      })); panel.setAttribute('aria-labelledby', `log-tab-${index}`);
+    };
+    q.logs.forEach((log, index) => {
+      const button = node('button', log.label); button.id = `log-tab-${index}`;
+      button.setAttribute('role', 'tab'); button.setAttribute('aria-controls', panel.id);
+      button.addEventListener('click', () => select(index));
+      button.addEventListener('keydown', e => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+        e.preventDefault();
+        const target = e.key === 'Home' ? 0 : e.key === 'End' ? q.logs.length - 1 : (index + (e.key === 'ArrowRight' ? 1 : -1) + q.logs.length) % q.logs.length;
+        select(target); tabs.children[target].focus();
+      }); tabs.append(button);
+    }); host.append(tabs, panel); select(0);
+  }
+  const options = node('div', undefined, `options ${q.type === 'chat' ? 'chat-options' : ''}`);
+  q.options.forEach((option, index) => {
+    const button = node('button', `${String.fromCharCode(65 + index)}. ${option}`, 'option');
+    button.addEventListener('click', () => onAnswer(index)); options.append(button);
+  }); host.append(options);
+  if (q.premise) host.append(node('p', q.premise, 'premise'));
+  return {
+    dispose() {},
+    pass(answer) {
+      [...options.children].forEach((button, i) => { button.disabled = true; button.classList.toggle('selected', i === answer); });
+
+    },
+  };
+}
+function codePoint(char) { return `U+${char.codePointAt(0).toString(16).toUpperCase().padStart(4, '0')}`; }
+
+return {mountLevel,codePoint};
+})();
+__modules["js/invitation-data.js"]=(()=>{
+// 稳定数据接口：新视觉模板只需接收此对象，无需读取游戏状态或题目。
+function createInvitationData(event, player) {
+  if (!player.finished || !player.name || !player.title) throw new Error('完成全部关卡后才能生成邀请函。');
+  return Object.freeze({ ...event, name: player.name, playerTitle: player.title });
+}
+
+return {createInvitationData};
+})();
+__modules["js/invitation.js"]=(()=>{
+// Invitation visual template. All personal/event content comes from data.
+// One Canvas supplies both preview and PNG; no HTML controls are exported.
+function drawInvitation(canvas, data) {
+  canvas.width = 1200;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('当前浏览器不支持 Canvas');
+  const chinese = 'Arial, "Microsoft YaHei", sans-serif';
+  const pixel = 'Arcade1024, "Courier New", monospace';
+  const ink = '#242746', gold = '#ffda85', pale = '#fff4d7';
+  const setFont = (size, bold = false, family = chinese) => { ctx.font = `${bold ? 'bold ' : ''}${size}px ${family}`; };
+  const wrap = (value, size, width, bold = false) => {
+    setFont(size, bold); const lines = [];
+    for (const paragraph of value.split('\n')) {
+      let line = '';
+      for (const char of paragraph) {
+        if (line && ctx.measureText(line + char).width > width) { lines.push(line); line = ''; }
+        line += char;
+      }
+      lines.push(line);
+    }
+    return lines;
+  };
+  const location = wrap(data.location, 39, 870);
+  canvas.height = 1840 + Math.max(0, location.length - 1) * 56;
+  const h = canvas.height;
+  const gradient = ctx.createLinearGradient(0, 0, 1200, h);
+  gradient.addColorStop(0, '#18346e'); gradient.addColorStop(.42, '#32468f'); gradient.addColorStop(.73, '#323574'); gradient.addColorStop(1, '#152654');
+  ctx.fillStyle = gradient; ctx.fillRect(0, 0, 1200, h);
+  // Quiet checker texture and vertical energy paths.
+  ctx.fillStyle = '#b7baff'; ctx.globalAlpha = .023;
+  for (let y = 0; y < h; y += 24) for (let x = (y / 24 % 2) * 24; x < 1200; x += 48) ctx.fillRect(x, y, 24, 24);
+  ctx.globalAlpha = 1;
+  const rect = (x, y, w, height, color) => { ctx.fillStyle = color; ctx.fillRect(x, y, w, height); };
+  const line = (x1, y1, x2, y2, color, width = 2) => { ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); };
+  const stepped = (x, y, w, height, cut, color) => {
+    ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(x + cut, y); ctx.lineTo(x + w - cut, y); ctx.lineTo(x + w - cut, y + cut); ctx.lineTo(x + w, y + cut); ctx.lineTo(x + w, y + height - cut); ctx.lineTo(x + w - cut, y + height - cut); ctx.lineTo(x + w - cut, y + height); ctx.lineTo(x + cut, y + height); ctx.lineTo(x + cut, y + height - cut); ctx.lineTo(x, y + height - cut); ctx.lineTo(x, y + cut); ctx.lineTo(x + cut, y + cut); ctx.closePath(); ctx.fill();
+  };
+  const write = (value, x, y, size, color = pale, bold = false, family = chinese, maxWidth = 1000) => {
+    setFont(size, bold, family);
+    while (ctx.measureText(value).width > maxWidth && size > 16) setFont(--size, bold, family);
+    ctx.fillStyle = color; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(value, x, y);
+  };
+  const star = (x, y, size, color) => { rect(x - size / 2, y - size * 1.5, size, size * 3, color); rect(x - size * 1.5, y - size / 2, size * 3, size, color); };
+  const gem = (x, y, size) => {
+    ctx.fillStyle = '#35d9df'; ctx.beginPath(); ctx.moveTo(x, y-size); ctx.lineTo(x+size,y); ctx.lineTo(x,y+size); ctx.lineTo(x-size,y); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#b1ffff'; ctx.beginPath(); ctx.moveTo(x,y-size); ctx.lineTo(x,y); ctx.lineTo(x-size,y); ctx.closePath();ctx.fill();
+  };
+  // Fine energy paths and restrained shafts of light stay behind all text.
+  ctx.save(); ctx.globalAlpha = .065;
+  for (const x of [160, 900]) {
+    const beam = ctx.createLinearGradient(x, 100, x + 140, h);
+    beam.addColorStop(0, '#a0dbff'); beam.addColorStop(1, '#a0dbff00');
+    ctx.fillStyle = beam; ctx.beginPath(); ctx.moveTo(x, 80); ctx.lineTo(x + 34, 80);
+    ctx.lineTo(x + 210, h - 100); ctx.lineTo(x + 50, h - 100); ctx.fill();
+  }
+  ctx.restore();
+  for (const x of [92,1108]) {
+    line(x,280,x,600,'#6476a6',1); line(x,1220,x,h-280,'#6476a6',1);
+    rect(x-3,274,6,6,'#8b9bc5');rect(x-3,h-280,6,6,'#8b9bc5');
+  }
+  // Cut-corner metal frame with nested gold bands, inset shadow and edge highlights.
+  const frame = (inset, cut, color, width) => {
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath();
+    ctx.moveTo(inset+cut,inset); ctx.lineTo(1200-inset-cut,inset);
+    ctx.lineTo(1200-inset,inset+cut); ctx.lineTo(1200-inset,h-inset-cut);
+    ctx.lineTo(1200-inset-cut,h-inset); ctx.lineTo(inset+cut,h-inset);
+    ctx.lineTo(inset,h-inset-cut); ctx.lineTo(inset,inset+cut); ctx.closePath(); ctx.stroke();
+  };
+  for (const [inset,color,width] of [[24,'#101b3e',16],[36,'#a57536',10],[45,gold,7],[55,'#fff1bb',2],[66,'#957646',2],[79,'#8591af',1]]) frame(inset,27,color,width);
+  line(114,46,430,46,'#fff9d9',3);line(48,118,48,410,'#fff9d9',3);
+  line(770,h-46,1086,h-46,'#ad813c',3);line(1152,h-410,1152,h-118,'#ad813c',3);
+  for (const [cx,cy,sx,sy] of [[48,48,1,1],[1152,48,-1,1],[48,h-48,1,-1],[1152,h-48,-1,-1]]) {
+    ctx.save(); ctx.translate(cx,cy); ctx.scale(sx,sy);
+    rect(-10,-10,78,14,gold); rect(-10,-10,14,78,gold);
+    rect(17,17,72,7,gold); rect(17,17,7,72,gold); rect(38,38,19,19,pale);
+    rect(59,59,11,11,'#c69a51'); line(70,46,99,46,gold,2); line(46,70,46,99,gold,2);
+    ctx.restore();
+  }
+  for (let i=0;i<14;i++) {
+    const y=150+i*109; if(y>h-130)break;
+    rect(46,y,6,6,gold); rect(1148,y,6,6,gold);
+  }
+  write('LEVEL CLEAR',600,131,21,gold,false,pixel);
+  write(`${data.year}年${data.title}`,600,198,43,pale,true);
+  write(data.theme,600,264,39,'#eee8ff',false,chinese,990);
+  // Numeric insignia and faceted halo.
+  const halo=ctx.createRadialGradient(600,470,40,600,470,270);
+  halo.addColorStop(0,'#d9bd7655');halo.addColorStop(.55,'#8dadf533');halo.addColorStop(1,'#7399df00');
+  ctx.fillStyle=halo;ctx.fillRect(310,300,580,365);
+  for (const [rx,ry,color] of [[260,176,'#8194c080'],[238,158,'#edcd8690'],[209,133,'#bda37a50']]) {
+    ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();
+    for(let i=0;i<8;i++){const a=(i+.5)*Math.PI/4;const x=600+Math.cos(a)*rx,y=473+Math.sin(a)*ry;i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.closePath();ctx.stroke();
+  }
+  for(let i=0;i<16;i++){
+    const a=i*Math.PI/8;ctx.strokeStyle=i%2?'#bd9fcb':'#ffda85';ctx.lineWidth=i%2?3:5;
+    ctx.beginPath();ctx.moveTo(600+Math.cos(a)*172,476+Math.sin(a)*126);ctx.lineTo(600+Math.cos(a)*207,476+Math.sin(a)*157);ctx.stroke();
+  }
+  ctx.strokeStyle='#dfb969';ctx.lineWidth=3;ctx.beginPath();
+  for(let i=0;i<8;i++){const a=(i+.5)*Math.PI/4,x=600+Math.cos(a)*226,y=473+Math.sin(a)*155;i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.closePath();ctx.stroke();
+  ctx.save();ctx.shadowColor='#ffdc8780';ctx.shadowBlur=20;
+  write('1024',604,481,156,'#122247',false,pixel); write('1024',600,474,156,gold,false,pixel);ctx.restore();
+  line(456,569,744,569,'#bb9961',2); star(600,569,5,gold);
+  for(const [x,y,s]of [[190,357,7],[982,368,7],[246,593,5],[947,602,5],[304,431,4],[876,483,4]])star(x,y,s,gold);
+  gem(600,329,14);gem(310,474,12);gem(891,474,12);
+  stepped(295,635,610,58,10,'#ad7b40');stepped(291,629,610,58,10,gold);
+  write('传奇限定 · 通关邀请函',596,658,28,ink,true,chinese,540);
+  // Personal name and achievement form the collectible's central panel.
+  stepped(108,733,984,399,16,'#1d245b');
+  ctx.strokeStyle='#b4a1e2';ctx.lineWidth=2;ctx.strokeRect(125,753,950,356);
+  write('致每一位创造者',600,790,25,'#cac4e7');
+  write('致 / ' + data.name,600,871,84,pale,true,chinese,864);
+  line(255,945,945,945,'#71629f');star(600,945,6,gold);
+  write('ACHIEVEMENT UNLOCKED',600,977,15,'#d6ddf5',false,pixel);
+  const plaque=ctx.createLinearGradient(0,1010,0,1105);
+  plaque.addColorStop(0,'#fff0b8');plaque.addColorStop(.46,'#efd092');plaque.addColorStop(1,'#c99447');
+  stepped(207,1014,792,88,12,'#121d41');stepped(202,1007,792,88,12,plaque);
+  line(230,1015,966,1015,'#fff9df',2);
+  write(data.playerTitle,598,1052,56,'#352c4a',true,chinese,740);
+  // Concise event details only. The save reminder is UI content, never card data.
+  const paperTop=1180, paperBottom=h-156;
+  const paper = ctx.createLinearGradient(0,paperTop,0,paperBottom);
+  paper.addColorStop(0,'#fff5df');paper.addColorStop(1,'#ead9b4');
+  stepped(108,paperTop,984,paperBottom-paperTop,14,paper);
+  rect(125,paperTop+16,950,3,'#caa160');
+  write(`${data.activity}邀请`,600,1254,34,'#5a4a76',true);
+  line(210,1308,990,1308,'#c9ae78',1);
+  write('活动日期',600,1361,26,'#625875');
+  write(data.date,600,1424,44,ink,true);
+  write('活动地点',600,1518,26,'#625875');
+  let y=1580;
+  for(const value of location){write(value,600,y,39,ink,true,chinese,870);y+=56;}
+  star(600,h-113,6,gold);
+  line(410,h-113,550,h-113,'#a89367',1);line(650,h-113,790,h-113,'#a89367',1);
+  // Decorative small facets are not identifiers or qualification codes.
+  gem(85,710,9);gem(1115,710,9);gem(85,h-710,9);gem(1115,h-710,9);
+}
+function exportPng(canvas) {
+  return new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('无法生成 PNG')), 'image/png'));
+}
+
+return {drawInvitation,exportPng};
+})();
+__modules["js/visuals.js"]=(()=>{
+// Visual metadata only. Answers and story content remain in config.js.
+const scenes = {
+  scanner: { name: 'PIXEL DETECTIVE LAB', short: 'FIND THE BUG', hint: '异常，藏在细节里。', file: 'detective.svg', color: 'mint', icon: '⌕' },
+  choice: { name: 'AI EXPERIMENT 002', short: 'TRUST BUT VERIFY', hint: '信心满格，结果待定。', file: 'ai-lab.svg', color: 'purple', icon: '✦' },
+  chat: { name: 'OFFICE CHAT QUEST', short: 'LOST IN TRANSLATION', hint: '听懂需求，也是一种超能力。', file: 'office.svg', color: 'yellow', icon: '＋' },
+  logs: { name: 'PRODUCTION RESCUE', short: 'FOLLOW THE LOGS', hint: '别慌，让日志说话。', file: 'servers.svg', color: 'blue', icon: '!' },
+  ending: { name: 'FRIDAY SURVIVAL', short: 'ONE LAST MESSAGE', hint: '距离周末，只差一次选择。', file: 'sunset.svg', color: 'sunset', icon: '↗' },
+};
+const particles = () => `<div class="pixel-particles" aria-hidden="true">${Array.from({ length: 16 }, (_, i) => `<i style="--i:${i};--x:${(i * 37) % 100}%"></i>`).join('')}</div>`;
+function sceneArt(type) {
+  const scene = scenes[type];
+  return `<div class="level-art" aria-hidden="true"><img src="${__scenes[scene.file]}" alt="">${type === 'ending' ? '<div class="friday-clock">17:59</div>' : ''}${type === 'choice' ? '<div class="ai-emotion"><span class="confident-face">^‿^</span><span class="oops-face">×_×</span></div>' : ''}${type === 'scanner' ? '<span class="scan-beam"></span>' : ''}${type === 'logs' ? '<span class="server-status"><i></i><b class="status-alert">INCIDENT DETECTED</b><b class="status-ok">SYSTEM HEALTHY</b></span>' : ''}<span class="art-label">${scene.short}</span></div>`;
+}
+
+return {scenes,particles,sceneArt};
+})();
+__modules["js/app.js"]=(()=>{
+const { event, questions, messages, invitationSave } = __modules["js/config.js"];
+const { createGame } = __modules["js/game.js"];
+const { createPerformance } = __modules["js/performance.js"];
+const { mountLevel } = __modules["js/levels.js"];
+const { createInvitationData } = __modules["js/invitation-data.js"];
+const { drawInvitation, exportPng } = __modules["js/invitation.js"];
+const { scenes, sceneArt, particles } = __modules["js/visuals.js"];
+const app = document.querySelector('#app');
+const dialog = document.querySelector('#image-dialog');
+const game = createGame(questions);
+document.querySelector('#brand-name').textContent = event.projectName;
+document.title = `${event.projectName}｜${event.projectSubtitle}`;
+let imageUrl;
+let screenVersion = 0;
+const $ = selector => app.querySelector(selector);
+const text = (selector, value) => { $(selector).textContent = value; };
+let transitionTimer;
+let cleanupLevel = () => {};
+const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+function screen(html, name = 'home') {
+  cleanupLevel(); cleanupLevel = () => {};
+  clearTimeout(transitionTimer); screenVersion++; document.body.dataset.scene = name;
+  app.innerHTML = html; app.focus(); window.scrollTo(0, 0);
+}
+function home() {
+  game.reset();
+  if (imageUrl) { URL.revokeObjectURL(imageUrl); imageUrl = undefined; }
+  dialog.close(); document.querySelector('#export-image').removeAttribute('src');
+  screen(`<section class="home-page"><div class="home-hero"><div class="home-copy"><p class="eyebrow"><span class="mini-star">✦</span> 2026 PROGRAMMER'S DAY</p><h1><span class="home-logo">1024<span>.exe</span></span><span id="project-subtitle"></span></h1><p id="event-theme" class="theme-line"></p><p class="home-intro">你的日常，是别人的生存挑战。</p><form id="start-form" novalidate><div class="form-heading"><label for="name">PLAYER NAME <span>/ 玩家姓名</span></label><span>01 PLAYER</span></div><input id="name" autocomplete="name" maxlength="80" placeholder="输入你的名字，开启1024挑战" aria-describedby="name-error privacy" required><p id="name-error" class="error" role="alert"></p><button class="primary start-button" type="submit"><span>START GAME</span><span aria-hidden="true">→</span></button><p class="play-time">◷ 约 3 分钟 <span>完成 5 项挑战 · 解锁专属邀请函</span></p></form><p id="privacy" class="privacy"></p></div><div class="portal-scene"><div class="scene-window-bar"><span>WORLD_1024 / NEW ADVENTURE</span><span>■ ■ ×</span></div><img src="${__scenes["portal.svg"]}" alt="巨型1024像素传送门，连接彩色天空与数字道路"><div class="portal-label">YOUR NEXT ADVENTURE<br><b>STARTS HERE.</b></div><span class="floating-code code-one" aria-hidden="true">&lt;HELLO WORLD /&gt;</span><span class="floating-code code-two" aria-hidden="true">+1024 XP</span></div></div><section class="mission-preview" aria-label="五项挑战预告"><div class="section-label"><span>YOUR MISSIONS</span><span>5 个关卡，找到你的隐藏属性</span></div><div class="mission-list">${questions.map((q, i) => `<div class="mission-mini"><b>0${i + 1}</b><span id="mission-${i}"></span><span aria-hidden="true">${scenes[q.type].icon}</span></div>`).join('')}</div></section></section>`);
+  text('#project-subtitle', event.projectSubtitle); text('#event-theme', event.theme); text('#privacy', messages.privacy);
+  questions.forEach((q, i) => text(`#mission-${i}`, q.title));
+  $('#start-form').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!game.start($('#name').value)) {
+      text('#name-error', messages.nameError); $('#name').setAttribute('aria-invalid', 'true'); $('#name').focus(); return;
+    }
+    const button = $('#start-form button'); button.disabled = true; button.firstElementChild.textContent = 'LOADING...';
+    $('.home-page').classList.add('launching');
+    if (reducedMotion()) challenge(); else transitionTimer = setTimeout(challenge, 500);
+  });
+}
+function challenge() {
+  const state = game.snapshot;
+  if (!state.name || state.finished) return;
+  const q = questions[state.level];
+  const art = q.type === 'choice' || q.type === 'ending' ? sceneArt(q.type) : '';
+  const special = q.type === 'choice'
+    ? `${art}<div class="confidence" aria-label="AI信心"><span>AI CONFIDENCE</span><strong id="confidence-value">100%</strong><div class="confidence-bar"></div></div>`
+    : q.type === 'logs' ? '<div class="incident-banner"><span class="incident-lamp"></span><strong id="incident-state">INCIDENT</strong></div>' : art;
+  screen(`<section class="challenge-page play-page level-${q.type}"><div class="quest-top"><p>LEVEL ${String(state.level + 1).padStart(2, '0')} / ${String(questions.length).padStart(2, '0')}</p><div class="mission-steps" aria-hidden="true">${questions.map((_, i) => `<span class="${i < state.level ? 'done' : i === state.level ? 'current' : ''}">${i < state.level ? '✓' : `0${i + 1}`}</span>`).join('')}</div><span id="player" class="sr-only"></span></div><div class="game-heading"><h1 id="question-title"></h1>${['scanner','chat','logs'].includes(q.type) ? `<img class="scene-stamp" src="${__scenes[scenes[q.type].file]}" alt="" aria-hidden="true">` : ''}</div><div class="game-stage">${special}<div class="scene-conversation"><p id="story" class="story"></p>${q.type === 'chat' ? '<p id="intro-followup" class="story intro-followup" hidden></p>' : ''}</div><h2 id="prompt"></h2><div id="interaction"></div><div id="feedback" role="status" aria-live="polite" aria-atomic="true"></div><div id="reveal" hidden></div><button id="repair" class="primary" hidden>立即修复 →</button><button id="skip-show" class="secondary" hidden>跳过演出</button><button id="next" class="primary" hidden>${q.type === 'ending' ? '领取我的邀请函' : 'NEXT LEVEL →'}</button></div><button class="restart text-button">← 重新开始</button></section>`, q.type);
+  text('#player', state.name); text('#question-title', q.title); text('#story', q.story); text('#prompt', q.prompt);
+  const root = $('.challenge-page');
+  const performance = createPerformance();
+  let ready = false, introTimer, showIntro = () => {};
+  let previousRetry = -1;
+  const reveal = $('#reveal');
+  const add = (tag, content, className) => {
+    const el = document.createElement(tag); el.textContent = content; if (className) el.className = className;
+    reveal.hidden = false; reveal.append(el); return el;
+  };
+  const feedback = (value, correct) => {
+    $('#feedback').className = correct ? 'feedback correct' : 'feedback retry'; text('#feedback', value);
+  };
+  const complete = () => {
+    ready = true; root.classList.remove('performing'); root.classList.add('level-passed');
+    $('#skip-show').hidden = true; $('#next').hidden = false;
+  };
+  const play = (steps, duration) => {
+    root.classList.add('performing'); $('#skip-show').hidden = false;
+    performance.play(steps, duration, complete);
+  };
+  const burst = () => $('.game-stage').insertAdjacentHTML('beforeend', particles());
+  if (q.type === 'chat') {
+    text('#intro-followup', q.introFollowUp);
+    showIntro = () => { clearTimeout(introTimer); $('#intro-followup').hidden = false; };
+    if (reducedMotion()) showIntro(); else introTimer = setTimeout(showIntro, 450);
+  }
+  const setConfidence = value => {
+    text('#confidence-value', `${value}%`); $('.confidence-bar').style.width = `${value}%`;
+  };
+  const view = mountLevel($('#interaction'), q, answer => {
+    const result = game.answer(answer);
+    if (!result.accepted) return;
+    if (!result.correct) {
+      // Random first line, then choose another so retries never repeat the same quip.
+      const lines = Array.isArray(q.retry) ? q.retry : [q.retry];
+      const choices = lines.map((_, i) => i).filter(i => i !== previousRetry);
+      previousRetry = choices[Math.floor(Math.random() * choices.length)] ?? 0;
+      feedback(lines[previousRetry], false); return;
+    }
+    view.pass(answer); reveal.className = 'reveal';
+    if (q.type === 'scanner') {
+      feedback(q.success, true); add('p', q.comparison, 'unicode-comparison'); add('p', q.explanation, 'explanation');
+      root.classList.add('bug-found'); play([[0, burst]], 850);
+    } else if (q.type === 'choice') {
+      feedback(q.answerFound, true);
+      const steps = [[0, () => root.classList.add('ai-frozen')]];
+      for (let i = 1; i <= 10; i++) steps.push([200 + i * 80, () => setConfidence(100 - i * 10)]);
+      steps.push([1050, () => root.classList.add('ai-exposed')], [1300, () => feedback(q.success, true)], [1650, () => {
+        add('strong', q.verified, 'verified');
+        const detail = add('details', '', 'technical-note');
+        const summary = document.createElement('summary'); summary.textContent = '为什么是 Promise？';
+        const explanation = document.createElement('p'); explanation.textContent = q.explanation; detail.append(summary, explanation);
+      }]); play(steps, 2100);
+    } else if (q.type === 'chat') {
+      showIntro(); $('#feedback').textContent = ''; $('#feedback').className = '';
+      add('p', q.options[answer], 'player-message');
+      const steps = q.followUps.map((line, i) => [250 + i * 400, () => add('p', `PM：${line}`, 'follow-up chat-message')]);
+      steps.push([1450, () => { add('p', q.bonus, 'requirements-bonus'); feedback(q.success, true); }]);
+      play(steps, 2100);
+    } else if (q.type === 'logs') {
+      feedback(q.success, true); $('#repair').hidden = false;
+    } else {
+      root.classList.add('destiny-chosen'); feedback(result.ending.feedback, true);
+      play([[700, () => { add('p', '称号已解锁！', 'title-unlocked'); add('h2', result.ending.title, 'earned-title'); burst(); }]], 1700);
+    }
+  });
+  $('#repair').addEventListener('click', () => {
+    if (!game.repair()) return;
+    $('#repair').hidden = true;
+    play([[0, () => add('p', q.recovery[0], 'recovery config-repair')], [550, () => {
+      root.classList.add('repaired'); text('#incident-state', 'SERVICE RECOVERED');
+    }], [1000, () => { add('p', q.recovery[1], 'recovered-banner'); feedback(q.repaired, true); burst(); }]], 1600);
+  });
+  $('#skip-show').addEventListener('click', () => performance.skip());
+  $('#next').addEventListener('click', () => {
+    if (!ready || !game.advance()) return;
+    game.snapshot.finished ? invitation() : challenge();
+  });
+  $('.restart').addEventListener('click', home);
+  cleanupLevel = () => { clearTimeout(introTimer); performance.cancel(); view.dispose?.(); };
+}
+
+function success() {
+  if (!game.snapshot.finished) return;
+  screen(`<section class="success-page">${particles()}<p class="eyebrow victory-step step-one">ALL MISSIONS COMPLETED</p><div class="reward-art"><div class="reward-rays"></div><img src="${__scenes["medal.svg"]}" alt="金色像素成就勋章"></div><p class="granted victory-step step-two" id="granted"></p><p id="winner"></p><h2 id="earned-title" class="victory-step step-three"></h2><h1 id="complete" class="victory-step step-four"></h1><p class="victory-step step-four">你已获得传说级奖励，下一场冒险在线下。</p><button id="view-invite" class="primary">跳过动画 · 查看邀请函 →</button><button class="restart text-button">重新开始</button></section>`, 'success');
+  text('#granted', messages.unlocked); text('#complete', messages.complete);
+  text('#winner', game.snapshot.name); text('#earned-title', game.snapshot.title);
+  $('#view-invite').addEventListener('click', invitation); $('.restart').addEventListener('click', home);
+  if (!reducedMotion()) transitionTimer = setTimeout(invitation, 4600);
+}
+
+async function invitation() {
+  if (!game.snapshot.finished) return;
+  const data = createInvitationData(event, game.snapshot);
+  screen(`<section class="invitation-page"><div class="invitation-actions"><div class="invitation-intro"><p class="eyebrow">传说级限定通关卡</p><h1>这份高光，<br><span>只属于你。</span></h1><p id="invite-theme" class="invite-theme"></p><div class="player-achievement"><span>本次通关成就</span><p id="invite-name"></p><h2 id="invite-title"></h2></div><p id="invite-location" class="invite-location"></p></div><section class="save-reminder" aria-labelledby="save-reminder-title"><span class="ticket-icon" aria-hidden="true">↓</span><h2 id="save-reminder-title"></h2><p id="save-reminder-body"></p><button id="save" class="primary" disabled></button><p id="save-error" class="error" role="alert"></p><p class="save-hint">高清 PNG · 下载或打开原图后长按保存</p><div class="invite-links"><button id="regenerate" class="secondary" disabled>↻ 重新生成</button><button id="restart" class="text-button">← 重新挑战</button></div></section></div><div class="pass-stage"><canvas id="invitation" role="img"></canvas></div></section>`, 'invitation');
+  text('#invite-theme', data.theme); text('#invite-name', data.name); text('#invite-title', data.playerTitle);
+  text('#invite-location', `活动地点：${data.location}`);
+  text('#save-reminder-title', invitationSave.title); text('#save-reminder-body', invitationSave.body); text('#save', invitationSave.button);
+  const canvas = $('#invitation');
+  canvas.setAttribute('aria-label', `${data.name}，${data.playerTitle}。${data.title}，${data.theme}，${data.date}，${data.activity}，${data.location}。`);
+  const version = screenVersion;
+  const render = async () => {
+    await document.fonts.load('20px Arcade1024'); await document.fonts.ready;
+    if (version !== screenVersion) return;
+    drawInvitation(canvas, data); $('#save').disabled = false; $('#regenerate').disabled = false;
+  };
+  $('#regenerate').addEventListener('click', async () => {
+    $('#regenerate').disabled = true; text('#save-error', '');
+    try { await render(); } catch (e) { if (version === screenVersion) text('#save-error', e.message); }
+  });
+  $('#save').addEventListener('click', async () => {
+    const button = $('#save'); button.disabled = true; text('#save-error', '');
+    try {
+      const blob = await exportPng(canvas);
+      if (version !== screenVersion) return;
+      if (imageUrl) URL.revokeObjectURL(imageUrl);
+      imageUrl = URL.createObjectURL(blob);
+      const img = document.querySelector('#export-image'); img.src = imageUrl; img.alt = canvas.getAttribute('aria-label');
+      document.querySelector('#download-image').href = imageUrl; document.querySelector('#open-image').href = imageUrl;
+      dialog.showModal();
+    } catch (e) { if (version === screenVersion) text('#save-error', `${messages.saveError} ${e.message}`); }
+    finally { if (version === screenVersion) button.disabled = false; }
+  });
+  $('#restart').addEventListener('click', home);
+  try { await render(); } catch (e) { if (version === screenVersion) text('#save-error', e.message); }
+}
+document.querySelector('#close-dialog').addEventListener('click', () => dialog.close());
+home();
+
+return {};
+})();
+document.querySelector(".brand").href=location.pathname;
+})();
+</script>
+</body>
+</html>
